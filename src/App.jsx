@@ -5,13 +5,16 @@ import AuthLayout from './layouts/AuthLayout';
 import DashboardLayout from './layouts/DashboardLayout';
 import Login from './pages/user/login/Login';
 import Register from './pages/user/register/Register';
+import { ToastContainer } from 'react-toastify';
+import UserLayout from './layouts/UserLayout';
+import Home from './pages/user/home/Home';
 
 export default function App() {
 
   const router = createBrowserRouter(
     [
       {
-        path: '/',
+        path: '/auth',
         element: <AuthLayout />,
         children: [
           {
@@ -25,14 +28,25 @@ export default function App() {
         ]
       },
       {
-        path: '/dashboard',
-        element:<DashboardLayout />,
+        path: '/',
+        element: <UserLayout />,
+        children: [
+          {
+            path: '/',
+            element: <Home />
+          }
+        ]
+      },
+      {
+        path: 'dashboard',
+        element: <DashboardLayout />,
       },
     ]
   );
 
   return (
     <>
+      <ToastContainer />
       <RouterProvider router={router} />
     </>
   )

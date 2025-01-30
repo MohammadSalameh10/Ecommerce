@@ -1,0 +1,34 @@
+.footer{
+    background-color: #F3F4F6;
+}
+.sendInput{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top: 1px solid #D1D5DB;
+    border-left: 1px solid #D1D5DB;
+    border-bottom: 1px solid #D1D5DB;
+    border-right: transparent;
+    width: 55%;
+   padding: 8px 0;
+}
+.sendImage{
+    position: absolute;
+    top: 13.5px;
+    left: 7px;
+}
+.sendInput::placeholder{
+    color: #9CA3AF;
+    padding-left: 30px;
+}
+.sendButton{
+background-color: #634C9F;
+color: white;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+font-size: 12px;
+border: transparent;
+
+}
+.purple{
+    color: #634C9F;
+}

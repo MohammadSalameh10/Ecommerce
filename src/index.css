@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    font-family: var(--mainFont);
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    --mainFont: 'Inter', sans-serif;
+}
+
+
+footer *{
+    margin: 0;
+    padding: 0;
+}
+
+footer h2 {
+    color: #111827;
+    font-weight: 700;
+}
+
+footer a {
+    color: #4B5563;
+    font-size: 13px;
+}
+
+footer p {
+    color: #6B7280;
+    font-size: 11px;
+}
+
+.footer-bottom-right a {
+    color: #111827;
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+.footer-social .social-icons img {
+    background-color: #fff;
+    padding: 10px 12px;
+    border-radius: 6px;
+}
+.footer-social p{
+    color: #111827;
+    font-size: 14px;
+}
