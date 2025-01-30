@@ -1,7 +1,15 @@
 import React from 'react'
+import CustomNavbar from '../components/user/navbar/Navbar'
+import { Outlet } from 'react-router-dom'
+import Footer from '../components/user/footer/Footer'
 
 export default function UserLayout() {
   return (
-    <div>UserLayout</div>
+    <>
+    <CustomNavbar />
+    <Outlet />
+    <Footer />
+    </>
+   
   )
 }

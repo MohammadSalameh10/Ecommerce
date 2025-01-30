@@ -1,0 +1,36 @@
+.register {
+    padding: 120px 0px;
+}
+
+.authentication a {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.authentication a:nth-child(1) {
+    color: #9CA3AF;
+}
+
+.authentication a:nth-child(2) {
+    color: #111827;
+}
+
+.register p {
+    font-size: 13px;
+}
+.form{
+    width:30%;
+}
+.choose span{
+color: #634C9F;
+}
+.label{
+    font-size: 13px;
+}
+
+.button{
+    background-color:#634C9F ;
+    border: 0;
+    font-size: 13px;
+    padding: 10px 0;
+  }
