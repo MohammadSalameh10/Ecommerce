@@ -1,0 +1,31 @@
+.websiteName span:nth-child(1){
+    color: #634C9F;
+    font-size: 9px;
+    position: absolute;
+    top: 0px;
+    left: 60px;
+    font-weight: bold;
+}
+.websiteName span:nth-child(2){
+    color: #111827;
+    font-size: 24px;
+    font-weight: bold;
+}
+.location span:nth-child(1){
+    color: #6B7280;
+    font-size: 11px;
+}
+.location span:nth-child(2){
+    color: #030712;
+    font-weight: bold;
+    font-size: 13px;
+}
+.login span:nth-child(1){
+font-size: 11px;
+color:#6B7280 ;
+}
+.login span:nth-child(2){
+    font-size: 13px;
+    color:#030712 ;
+    font-weight: bold;
+}
