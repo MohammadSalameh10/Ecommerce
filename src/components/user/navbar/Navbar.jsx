@@ -22,8 +22,8 @@ export default function CustomNavbar() {
               <span className='fw-bold'>JinStore</span>
             </div>
            </Link> 
-          <img src={location} />
-          <div className={`${style.location} d-flex flex-column`}>
+          <img src={location} className='d-lg-flex d-none' />
+          <div className={`${style.location} d-lg-flex flex-column d-none`}>
             <span>Deliver to</span>
             <span>all</span>
           </div>

@@ -19,7 +19,7 @@ export default function Footer() {
     return (
         <footer className={`${style.footer} p-5`}>
             <div className="container d-flex flex-column gap-5">
-                <div className='footer-top d-flex justify-content-between'>
+                <div className={`${style.footerTop} d-flex justify-content-between`}>
                     <div className='footer-item'>
                         <h2 className='fs-5'>Join our newsletter for £10 offs</h2>
                         <p>Register now to get latest updates on promotions &
@@ -36,8 +36,8 @@ export default function Footer() {
                         </form>
                     </div>
                 </div>
-                <div className='footer-middle row'>
-                    <div className='footer-links d-flex flex-column col-2 gap-3'>
+                <div className={`${style.footerMiddle} row`}>
+                    <div className='footer-links d-flex flex-column col-sm-6 col-md-4 col-xxl-2 gap-3 '>
                         <h2 className='fs-6'>Do You Need Help ?</h2>
                         <nav className='d-flex flex-column gap-3'>
                             <a href="">Autoseligen syr. Nek diarask fröbomba. Nör
@@ -60,7 +60,7 @@ export default function Footer() {
                             </div>
                         </nav>
                     </div>
-                    <div className='footer-links d-flex flex-column col-2 gap-3'>
+                    <div className='footer-links d-flex flex-column col-sm-6 col-md-4 col-xxl-2 gap-3 pt-sm-0 pt-3'>
                         <h2 className='fs-6'>Make Money with Us</h2>
                         <nav className='d-flex flex-column gap-1'>
                             <a href="">Sell on Grogin</a>
@@ -73,7 +73,7 @@ export default function Footer() {
                             <a href="">Become an Blowwe Vendor</a>
                         </nav>
                     </div>
-                    <div className='footer-links d-flex flex-column col-2 gap-3'>
+                    <div className='footer-links d-flex flex-column col-sm-6 col-md-4 col-xxl-2 gap-3 pt-md-0 pt-3'>
                         <h2 className='fs-6'>Let Us Help You</h2>
                         <nav className='d-flex flex-column gap-1'>
                             <a href="">Accessibility Statement</a>
@@ -87,7 +87,7 @@ export default function Footer() {
                             <a href="">Help Center</a>
                         </nav>
                     </div>
-                    <div className='footer-links d-flex flex-column col-2 gap-3'>
+                    <div className='footer-links d-flex flex-column col-sm-6  col-md-4 col-xxl-2 gap-3 pt-3 pt-xxl-0'>
                         <h2 className='fs-6'>Get to Know Us</h2>
                         <nav className='d-flex flex-column gap-1'>
                             <a href="">Careers for Grogin</a>
@@ -99,7 +99,7 @@ export default function Footer() {
                             <a href="">Store Locations</a>
                         </nav>
                     </div>
-                    <div className='footer-links d-flex flex-column col-4 gap-3'>
+                    <div className='footer-links d-flex flex-column col-md-6 col-xxl-4 gap-3 pt-3 pt-xxl-0'>
                         <h2 className='fs-6'>Download our app</h2>
                         <div className='footer-content d-flex flex-column gap-4'>
                             <div className='footer-download d-flex flex-column gap-2'>
@@ -118,7 +118,7 @@ export default function Footer() {
                                     </div>
                                 </div>
                             </div>
-                            <div className='footer-social d-flex flex-column gap-1'>
+                            <div className={`${style.footerSocial} d-flex flex-column gap-1`} >
                                 <p>Follow us on social media:</p>
                                 <div className='social-icons d-flex gap-2'>
                                     <img src={facebook} />
@@ -130,7 +130,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className='footer-bottom d-flex justify-content-between align-items-center'>
+                <div className={`${style.footerBottom} d-flex justify-content-between align-items-center`}>
                     <div className='footer-bottom-left d-flex flex-column gap-2'>
                         <p>Copyright 2024 © Jinstore WooCommerce WordPress Theme. All right reserved. Powered by <span className={`${style.purple}`}>BlackRise Themes.</span></p>
                         <div className='footer-payment d-flex gap-2'>
@@ -141,7 +141,7 @@ export default function Footer() {
                             <img src={klarna} />
                         </div>
                     </div>
-                    <div className='footer-bottom-right'>
+                    <div className={`${style.footerBottomRight}`} >
                         <nav className='d-flex gap-2'>
                             <a href="">Terms and Conditions</a>
                             <a href="">Privacy Policy</a>
