@@ -12,16 +12,16 @@ import cart from '../../../assets/navbar/cart.svg';
 import style from './navbar.module.css';
 export default function CustomNavbar() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className={`${style.navbar} `}>
       <Container>
-        <Navbar.Brand  className='d-flex align-items-center gap-3'>
-           <Link to={'/'} className='d-flex align-items-center gap-1'> 
-           <img src={logo} />
-           <div className={`${style.websiteName} position-relative`}>
+        <Navbar.Brand className='d-flex align-items-center gap-3'>
+          <Link to={'/'} className='d-flex align-items-center gap-1'>
+            <img src={logo} />
+            <div className={`${style.websiteName} position-relative`}>
               <span>com</span>
               <span className='fw-bold'>JinStore</span>
             </div>
-           </Link> 
+          </Link>
           <img src={location} className='d-lg-flex d-none' />
           <div className={`${style.location} d-lg-flex flex-column d-none`}>
             <span>Deliver to</span>
@@ -30,19 +30,39 @@ export default function CustomNavbar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto d-flex align-items-center">
-          <Nav.Link as={Link} to={'/'}>
-          <img src={user} />
-          </Nav.Link>
+          <Nav className={`${style.nav} ms-auto d-flex align-items-center gap-4`}>
+            <Nav.Link as={Link} to={'/'}>
+              Home
+            </Nav.Link>
+            <Nav.Link as={Link} to={'/'} className={`${style.login} d-flex flex-column`}>
+              Shop
+            </Nav.Link>
+            <Nav.Link as={Link} to={'/'} >
+              Blog
+            </Nav.Link>
+            <Nav.Link as={Link} to={'/'} >
+              Contact
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className={`${style.navs} ms-auto d-flex align-items-center`}>
+            <Nav.Link as={Link} to={'/'}>
+              <img src={user} className='d-lg-block d-none' />
+              <span className='d-lg-none d-block'>My Profile</span>
+            </Nav.Link>
             <Nav.Link as={Link} to={'/auth/login'} className={`${style.login} d-flex flex-column`}>
-            <span>Sign in</span>
-            <span>Account</span>
+              <span className='d-lg-block d-none'>Sign in</span>
+              <span className='d-lg-block d-none'>Account</span>
+              <span className='d-lg-none d-block'>Sign in</span>
             </Nav.Link>
             <Nav.Link as={Link} to={'/'} >
-          <img src={wishlist} />
+              <img src={wishlist} className='d-lg-block d-none' />
+              <span className='d-lg-none d-block'>Wishlist</span>
             </Nav.Link>
             <Nav.Link as={Link} to={'/'} >
-          <img src={cart} />
+              <img src={cart} className='d-lg-block d-none' />
+              <span className='d-lg-none d-block'>Cart</span>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

@@ -26,8 +26,8 @@ export default function Login() {
     } finally {
       setIsLoading(false);
     }
-
   }
+  
   return (
     <section className={`${style.login}`}>
       <Container>
