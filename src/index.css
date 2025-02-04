@@ -16,7 +16,15 @@ a {
   font-size: 13px;
 }
 
+.swiper-button-prev, 
+.swiper-button-next{
+    color: #634C9F !important;
 
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover{
+    background-color: #F3F4F6 !important;
+}
 
 
 

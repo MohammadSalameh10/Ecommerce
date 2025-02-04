@@ -4,7 +4,7 @@ import Footer from '../../../components/user/footer/Footer'
 import notfound from '../../../assets/images/notFound/notFound.png'
 import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import style from './notFound.module.css'
+import style from './notfound.module.css'
 export default function NotFound() {
     return (
         <>
