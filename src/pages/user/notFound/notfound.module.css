@@ -1,0 +1,16 @@
+.notFound{
+padding: 50px 0;
+}
+.notFound img{
+    width: 50%;
+}
+.notFound p{
+   color:#6B7280; 
+}
+.notFound a{
+    color: #fff;
+    background-color:#634C9F ;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 13px;
+}

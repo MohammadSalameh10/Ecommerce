@@ -1,19 +1,18 @@
 import React from 'react'
-import phone from '../../../assets/content/phone.svg'
-import email from '../../../assets/content/email.svg'
-import emails from '../../../assets/content/emails.svg'
-import facebook from '../../../assets/social/facebook.svg'
-import x from '../../../assets/social/x.svg'
-import instagram from '../../../assets/social/instagram.svg'
-import linkedin from '../../../assets/social/linkedin.svg'
-import googleplay from '../../../assets/app/googleplay.png'
-import appstore from '../../../assets/app/appstore.png'
-import visa from '../../../assets/payment/visa.svg'
-import mastercard from '../../../assets/payment/mastercard.svg'
-import paypal from '../../../assets/payment/paypal.svg'
-import skrill from '../../../assets/payment/skrill.svg'
-import klarna from '../../../assets/payment/klarna.svg'
-import { Placeholder } from 'react-bootstrap'
+import phone from '../../../assets/images/content/phone.svg'
+import email from '../../../assets/images/content/email.svg'
+import emails from '../../../assets/images/content/emails.svg'
+import facebook from '../../../assets/images/social/facebook.svg'
+import x from '../../../assets/images/social/x.svg'
+import instagram from '../../../assets/images/social/instagram.svg'
+import linkedin from '../../../assets/images/social/linkedin.svg'
+import googleplay from '../../../assets/images/app/googleplay.png'
+import appstore from '../../../assets/images/app/appstore.png'
+import visa from '../../../assets/images/payment/visa.svg'
+import mastercard from '../../../assets/images/payment/mastercard.svg'
+import paypal from '../../../assets/images/payment/paypal.svg'
+import skrill from '../../../assets/images/payment/skrill.svg'
+import klarna from '../../../assets/images/payment/klarna.svg'
 import style from './footer.module.css'
 export default function Footer() {
     return (
@@ -32,7 +31,7 @@ export default function Footer() {
                                 <input className={`${style.sendInput}`} type="email" placeholder='Enter your email address' />
                                 <button className={`${style.sendButton} p-2`} >SEND</button>
                             </div>
-                            <p>By subscribing you agree to our<span className={`${style.purple}`}>Terms & Conditions and Privacy & Cookies Policy.</span></p>
+                            <p>By subscribing you agree to our<span className={`${style.purple}`}> Terms & Conditions and Privacy & Cookies Policy.</span></p>
                         </form>
                     </div>
                 </div>

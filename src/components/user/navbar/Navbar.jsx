@@ -2,13 +2,12 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
-import logo from '../../../assets/navbar/logo.png';
-import location from '../../../assets/navbar/location.svg';
-import user from '../../../assets/navbar/user.svg';
-import wishlist from '../../../assets/navbar/wishlist.svg';
-import cart from '../../../assets/navbar/cart.svg';
+import logo from '../../../assets/images/navbar/logo.png';
+import location from '../../../assets/images/navbar/location.svg';
+import user from '../../../assets/images/navbar/user.svg';
+import wishlist from '../../../assets/images/navbar/wishlist.svg';
+import cart from '../../../assets/images/navbar/cart.svg';
 import style from './navbar.module.css';
 export default function CustomNavbar() {
   return (

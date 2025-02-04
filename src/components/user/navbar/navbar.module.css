@@ -1,6 +1,9 @@
 .navbar{
     border-bottom: 1px solid #E5E7EB;
     background-color: #F3F4F6;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .websiteName span:nth-child(1){

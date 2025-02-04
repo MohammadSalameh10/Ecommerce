@@ -12,6 +12,9 @@ a {
     --mainFont: 'Inter', sans-serif;
 }
 
+.error {
+  font-size: 13px;
+}
 
 
 
