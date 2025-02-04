@@ -57,20 +57,20 @@ export default function Register() {
         <Form onSubmit={handleSubmit(registerUser)} className={`${style.form} m-auto d-flex flex-column`}>
 
        
-          <Form.Group className="mb-1" controlId="formGroupUser" >
-            <Form.Label className={`${style.label}`}>Username *</Form.Label>
+          <Form.Group className="mb-1" controlId="username" >
+            <Form.Label className={`${style.label}`} htmlFor='username'>Username *</Form.Label>
             <Form.Control type="text" placeholder="" {...register('userName', { required: "Please enter your username" })} />
             {errors.userName ? <div className='text-danger error'>{errors.userName.message}</div> : null}
           </Form.Group>
 
-          <Form.Group className="mb-1" controlId="formGroupEmail" >
-            <Form.Label className={`${style.label}`}>Email address *</Form.Label>
+          <Form.Group className="mb-1" controlId="email" >
+            <Form.Label className={`${style.label}`} htmlFor='email'>Email address *</Form.Label>
             <Form.Control type="email" placeholder="" {...register('email', { required: "Please enter your email" })} />
             {errors.email ? <div className='text-danger error'>{errors.email.message}</div> : null}
           </Form.Group>
 
-          <Form.Group className="mb-1" controlId="formGroupPassword" >
-            <Form.Label className={`${style.label}`}>Password *</Form.Label>
+          <Form.Group className="mb-1" controlId="password" >
+            <Form.Label className={`${style.label}`} htmlFor='password'>Password *</Form.Label>
             <Form.Control type="password" placeholder="" {...register('password', { required: "Please enter your password" })} />
             {errors.password ? <div className='text-danger error'>{errors.password.message}</div> : null}
           </Form.Group>

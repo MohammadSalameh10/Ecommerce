@@ -39,7 +39,7 @@ export default function CustomNavbar() {
             <Nav.Link as={Link} to={'/'} >
               Blog
             </Nav.Link>
-            <Nav.Link as={Link} to={'/'} >
+            <Nav.Link as={Link} to={'/contact'} >
               Contact
             </Nav.Link>
           </Nav>

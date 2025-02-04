@@ -22,7 +22,6 @@ export default function Category() {
                 navigation
                 slidesPerView={3}
                 loop={true}
-                autoplay={{ delay: 2500, disableOnInteraction: false }}
             >
 
                 {data.categories.map(category =>

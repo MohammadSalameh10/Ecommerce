@@ -14,7 +14,8 @@ import Products from './pages/user/products/Products';
 import CategoryProducts from './pages/user/products/CategoryProducts';
 import ProductDetails from './pages/user/products/ProductDetails';
 import AuthProtectedRoute from './components/user/AuthProtectedRoute';
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import Contact from './pages/user/contact/Contact';
 
 export default function App() {
 
@@ -60,6 +61,10 @@ export default function App() {
           {
             path: 'products/:productId',
             element: <ProductDetails />
+          },
+          {
+            path: 'contact',
+            element: <Contact />
           }
         ]
       },
