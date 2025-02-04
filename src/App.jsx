@@ -13,6 +13,7 @@ import Categories from './pages/user/category/Categories';
 import Products from './pages/user/products/Products';
 import CategoryProducts from './pages/user/products/CategoryProducts';
 import ProductDetails from './pages/user/products/ProductDetails';
+import AuthProtectedRoute from './components/user/AuthProtectedRoute';
 
 
 export default function App() {
@@ -21,7 +22,10 @@ export default function App() {
     [
       {
         path: '/auth',
-        element: <AuthLayout />,
+        element:
+          <AuthProtectedRoute>
+            <AuthLayout />
+          </AuthProtectedRoute>,
         children: [
           {
             path: 'register',
@@ -47,15 +51,15 @@ export default function App() {
           },
           {
             path: 'categories/:categoryId',
-            element:<CategoryProducts />
+            element: <CategoryProducts />
           },
           {
             path: 'products',
-            element:<Products />
+            element: <Products />
           },
           {
             path: 'products/:productId',
-            element:<ProductDetails />
+            element: <ProductDetails />
           }
         ]
       },

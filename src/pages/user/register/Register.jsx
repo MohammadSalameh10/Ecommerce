@@ -54,7 +54,7 @@ export default function Register() {
           <p className='text-center'>There are many advantages to creating an account: the payment process is
             faster, shipment tracking is possible and much more.</p>
         </div>
-        <Form onSubmit={handleSubmit(registerUser)} className={`${style.form} m-auto d-flex flex-column `}>
+        <Form onSubmit={handleSubmit(registerUser)} className={`${style.form} m-auto d-flex flex-column`}>
 
        
           <Form.Group className="mb-1" controlId="formGroupUser" >
@@ -75,15 +75,7 @@ export default function Register() {
             {errors.password ? <div className='text-danger error'>{errors.password.message}</div> : null}
           </Form.Group>
           <div className= {`${style.choose}  d-flex flex-column gap-1`}>
-            <div className='d-flex align-items-center gap-2'>
-            <input type="radio" id="customer" name="user_type"  />
-            <label htmlFor="customer" className={`${style.label}`}>I am a customer</label>
-
-            </div>
-            <div className='vendor d-flex align-items-center gap-2'>
-            <input type="radio" id="vendor" name="user_type"  />
-           <label htmlFor="vendor" className={`${style.label}`}>I am a vendor</label>
-            </div>
+          
               <p className='pt-2'>Your personal data will be used to support your experience throughout this
                 website, to manage access to your account, and for other purposes described in
                 our <span> privacy policy.</span></p>
