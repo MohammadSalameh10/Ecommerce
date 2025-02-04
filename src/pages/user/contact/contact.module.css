@@ -24,7 +24,7 @@
 }
 
 .contactInformation {
-    border-bottom: #E5E7EB 2px solid;
+    border-bottom: #E5E7EB 1px solid;
 }
 
 .contactText {
@@ -59,6 +59,7 @@
     color: #4B5563;
 
 }
+
 .socialIcon i {
     color: #fff;
     padding: 10px;
@@ -85,12 +86,17 @@
     color: #6B7280;
     font-size: 13px;
 }
-.formLabel{
+
+.form {
+    width: 80%;
+}
+
+.formLabel {
     color: #030712;
     font-size: 13px;
 }
 
-.sendButton{
+.sendButton {
     background-color: #634C9F;
     color: #fff;
     border: none;
@@ -106,4 +112,27 @@
 .advantages p {
     font-size: 13px;
     color: #6B7280;
+}
+
+
+@media screen and (max-width: 992px) {
+    .contactInfo {
+        flex-direction: column;
+    }
+
+    .formName {
+        flex-direction: column;
+        gap: 0px !important;
+    }
+
+    .form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .contactInformation {
+        flex-direction: column;
+    }
+
 }

@@ -66,17 +66,21 @@ export default function Contact() {
                     <div className={`${style.contactForm} `}>
                         <p>On dekande mydurtad mora även om skurkstat. Semirade timaheten rena. Radiogen pasam
                             inte loba även om prerade i garanterad traditionell specialitet till bebel.</p>
-                        <Form>
-                            <div className='d-flex justify-content-between'>  
-                                <Form.Group className="mb-1" controlId="username"  >
-                                    <Form.Label htmlFor='username' className={style.formLabel}>Your name *</Form.Label>
-                                    <Form.Control type="text" placeholder="" />
-                                </Form.Group>
+                        <Form className={`${style.form} `}>
+                            <div className={`${style.formName} d-flex gap-3`}>
+                                <div>
+                                    <Form.Group className="mb-1" controlId="username"  >
+                                        <Form.Label htmlFor='username' className={style.formLabel}>Your name *</Form.Label>
+                                        <Form.Control type="text" placeholder="" className={style.input} />
+                                    </Form.Group>
+                                </div>
 
-                                <Form.Group className="mb-1 " controlId="email" >
-                                    <Form.Label htmlFor='email' className={style.formLabel}>Your email *</Form.Label>
-                                    <Form.Control type="email" placeholder="" />
-                                </Form.Group>
+                                <div>
+                                    <Form.Group className="mb-1 " controlId="email" >
+                                        <Form.Label htmlFor='email' className={style.formLabel}>Your email *</Form.Label>
+                                        <Form.Control type="email" placeholder="" className={style.input} />
+                                    </Form.Group>
+                                </div>
                             </div>
 
                             <Form.Group className="mb-1" controlId="subject" >
@@ -93,8 +97,8 @@ export default function Contact() {
                     </div>
                 </div>
 
-                <div className={`${style.advantages} d-flex justify-content-between pt-5`} >
-                    <div className='advantage d-flex align-items-center gap-2'>
+                <div className={`${style.advantages} d-flex flex-wrap pt-5`} >
+                    <div className='advantage d-flex align-items-center gap-2 col-sm-6 col-xxl-3 mb-3'>
                         <img src={payment} className='align-self-start' />
                         <div className='advantage-description'>
                             <h3 className='fw-bold'>Payment only online</h3>
@@ -103,7 +107,7 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    <div className='advantage d-flex align-items-center gap-2'>
+                    <div className='advantage d-flex align-items-center gap-2 col-sm-6 col-xxl-3 mb-3'>
                         <img src={sales} className='align-self-start' />
                         <div className='advantage-description'>
                             <h3 className='fw-bold'>New stocks and sales</h3>
@@ -112,7 +116,7 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    <div className='advantage d-flex align-items-center gap-2'>
+                    <div className='advantage d-flex align-items-center gap-2 col-sm-6 col-xxl-3 mb-sm-0 mb-3'>
                         <img src={quality} className='align-self-start' />
                         <div className='advantage-description'>
                             <h3 className='fw-bold'>Quality assurance</h3>
@@ -121,7 +125,7 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    <div className='advantage d-flex align-items-center gap-2'>
+                    <div className='advantage d-flex align-items-center gap-2 col-sm-6 col-xxl-3'>
                         <img src={delivery} className='align-self-start' />
                         <div className='advantage-description'>
                             <h3 className='fw-bold'>Delivery from 1 hour</h3>
