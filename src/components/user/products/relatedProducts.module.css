@@ -1,0 +1,51 @@
+.producTitle{
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.productsContent{
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+}
+
+.productsContent .product:last-child{
+    border-right: none;
+}
+
+.product{
+    border-right: 1px solid #E5E7EB;
+    padding: 15px 20px;
+   
+}
+
+.product .productImage{
+    text-align: center;
+}
+
+.product h2{
+font-size: 13px
+}
+
+.priceDiscount {
+    color: #DC2626;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.realPrice {
+    color: #111827;
+    font-size: 20px;
+    text-decoration: line-through;
+}
+.product .buy{
+    background-color: #16A34A;
+    padding: 6px 9px 9px 8px;
+   border-radius: 8px;
+}
+
+.product .status{
+    color: #16A34A;
+    font-size: 13px;
+    font-weight: bold;
+}

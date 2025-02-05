@@ -19,12 +19,29 @@ a {
 .swiper-button-prev, 
 .swiper-button-next{
     color: #634C9F !important;
-
 }
 .swiper-button-prev:hover,
 .swiper-button-next:hover{
     background-color: #F3F4F6 !important;
 }
 
+@media screen and (max-width: 576px) {
+    .swiper-button-prev, 
+    .swiper-button-next{
+       display: none !important;
+    }
+}
+
+.star-active{
+    color: #FACC15;
+}
+.star-not-active{
+    color: #D1D5DB;
+}
+
+.nav-link,
+.nav-link:hover {
+    color: #111827;
+}
 
 

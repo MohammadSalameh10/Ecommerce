@@ -1,0 +1,133 @@
+.products {
+    padding: 50px 0px;
+}
+
+.productImages img {
+    width: 15%;
+}
+.discount{
+    position: absolute;
+    left: 0%;
+    color: white;
+    background-color: #DC2626;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.productContent h2 {
+    color: #030712;
+}
+
+.productContent p {
+    color: #4B5563;
+    font-size: 14px;
+}
+
+.productInfo {
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.productInfo span {
+    font-size: 13px;
+    color: #030712;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    padding: 3px 5px;
+    font-weight: bold;
+}
+
+.priceDiscount {
+    color: #DC2626;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.realPrice {
+    color: #111827;
+    font-size: 20px;
+    text-decoration: line-through;
+}
+
+.whatsOrder {
+    background-color: #16A34A;
+    width: fit-content;
+    color: white;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.quantity {
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+}
+
+.quantity button {
+    background-color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 20px;
+}
+
+.cart {
+    background-color: #634C9F;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.cart a,
+.buy a {
+    color: white;
+    font-size: 14px;
+}
+
+.buy {
+    background-color: #212529;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.directions {
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    width: 660px;
+}
+
+.directions p {
+    font-size: 13px;
+}
+
+.directions .paymentDirections {
+    padding: 10px 15px;
+    gap: 25px;
+}
+
+.directions .safeDirections {
+    border-top: 1px solid #E5E7EB;
+    padding: 10px 15px;
+    gap: 25px;
+}
+.choiceBorder{
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    padding: 10px;
+}
+.reviews{
+    width: calc((100% - 16px) / 3);
+}
+.review {
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    padding: 10px;
+    width: 660px;
+}
+.review p {
+    color: #4B5563;
+}
+.reviewRating{
+    background-color: rgba(249, 249, 248, 0.995);
+    border: 1px solid #E5E7EB;
+    border-radius: 15px;
+    padding: 1px 3px;
+}
