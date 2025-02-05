@@ -19,11 +19,13 @@ export default function RelatedProducts({ categoryId, productId }) {
             {error ? <div className='alert alert-danger m-0'>{error}</div> :
                 <section className='products'>
                     <h2 className={style.producTitle}>Related products</h2>
-                    <div className={`${style.productsContent} d-flex`}>
+                    <div className={`${style.productsContent} d-flex gap-2 flex-wrap`}>
                         {data.products.map(product => (
                             product._id !== productId &&
                             <div className={style.product} key={product._id}>
+                                <div className='text-center'>
                                 <img src={product.mainImage.secure_url} className={style.productImage} />
+                                </div>
                                 <h2>{product.name}</h2>
                                 <Rating rate={4} />
                                 <div className='price d-flex align-items-center gap-2 pb-2'>

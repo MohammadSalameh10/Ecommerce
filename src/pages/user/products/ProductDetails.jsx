@@ -27,7 +27,7 @@ export default function ProductDetails() {
             {error ? <div className='alert alert-danger m-0'>{error}</div> :
                 <section className={style.products}>
                     <Container>
-                        <div className='product d-flex pb-4'>
+                        <div className={`${style.product} d-flex gap-5`}>
                             <div className='product-image d-flex flex-column'>
                                 <div className='d-flex justify-content-center position-relative'>
                                     <img src={data.product.mainImage.secure_url} />
@@ -85,15 +85,15 @@ export default function ProductDetails() {
                                 <div className='product-choice d-flex gap-3 pt-3'>
                                     <div className='wishlist d-flex align-items-center gap-2'>
                                         <img src={wishlist} className={style.choiceBorder} />
-                                        <span>Add to wishlist</span>
+                                        <span className='d-sm-block d-none'>Add to wishlist</span>
                                     </div>
                                     <div className='share d-flex align-items-center gap-2'>
                                         <img src={share} className={style.choiceBorder} />
-                                        <span>Share this Product</span>
+                                        <span className='d-sm-block d-none'>Share this Product</span>
                                     </div>
                                     <div className='compare d-flex align-items-center gap-2'>
                                         <img src={compare} className={style.choiceBorder} />
-                                        <span>Compare</span>
+                                        <span className='d-sm-block d-none'>Compare</span>
                                     </div>
                                 </div>
 
@@ -104,10 +104,10 @@ export default function ProductDetails() {
                             <Tabs
                                 defaultActiveKey="description"
                                 id="uncontrolled-tab-example"
-                                className="mb-3"
+                                className="mb-3 w-100"
                             >
                                 <Tab eventKey="description" title="Description" >
-                                    <p>{data.product.description}</p>
+                                    <p className={style.productDescription}>{data.product.description}</p>
                                 </Tab>
                                 <Tab eventKey="reviews" title="Reviews">
                                     <div className='d-flex flex-wrap gap-2'>
@@ -115,7 +115,7 @@ export default function ProductDetails() {
                                             <div key={review._id} className={`${style.reviews} d-flex gap-3`}>
                                                 <div className={`${style.review} d-flex flex-column gap-3`}>
                                                     <div className='review-header d-flex justify-content-between '>
-                                                        <div className='review-user d-flex flex-column'>
+                                                        <div className={`${style.reviewUser} d-flex flex-column`} >
                                                             <span className='fw-bold fs-5'>{review.createdBy.userName}</span>
                                                             <span>{review.createdBy.email}</span>
                                                         </div>
