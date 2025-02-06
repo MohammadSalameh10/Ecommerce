@@ -33,8 +33,8 @@ export default function CustomNavbar() {
             <Nav.Link as={Link} to={'/'}>
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to={'/'} className={`${style.login} d-flex flex-column`}>
-              Shop
+            <Nav.Link as={Link} to={'/products'} className={`${style.login} d-flex flex-column`}>
+              Products
             </Nav.Link>
             <Nav.Link as={Link} to={'/'} >
               Blog

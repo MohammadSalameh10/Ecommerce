@@ -22,29 +22,34 @@ export default function RelatedProducts({ categoryId, productId }) {
                     <div className={`${style.productsContent} d-flex gap-2 flex-wrap`}>
                         {data.products.map(product => (
                             product._id !== productId &&
-                            <div className={style.product} key={product._id}>
+                            <div className={`${style.product} d-flex flex-column gap-1`} key={product._id}>
+                                <span className={style.discount}>{product.discount}%</span>
                                 <div className='text-center'>
-                                <img src={product.mainImage.secure_url} className={style.productImage} />
+                                    <img src={product.mainImage.secure_url} className={style.productImage} />
                                 </div>
                                 <h2>{product.name}</h2>
-                                <Rating rate={4} />
-                                <div className='price d-flex align-items-center gap-2 pb-2'>
+                                <div className='d-flex'>
+                                    <Rating rate={4} />
+                                </div>
+                                <div className='price d-flex align-items-center gap-2 py-2'>
                                     <span className={style.priceDiscount}>${product.finalPrice}</span>
                                     <span className={style.realPrice}>${product.price}</span>
                                 </div>
-                                <div className='buy-raleated d-flex align-items-center gap-2'>
-                                    <div className={style.buy}>
-                                        <Link to={`/products/${product._id}`} >
-                                            <img src={carts} />
-                                        </Link>
+                                <div className='h-100 d-flex align-items-end'>
+                                    <div className={`${style.buyRelated} d-flex align-items-center gap-2`}>
+                                        <div className={style.buy}>
+                                            <Link to={`/products/${product._id}`} >
+                                                <img src={carts} />
+                                            </Link>
+                                        </div>
+                                        <span className={style.status} >{product.status}</span>
                                     </div>
-                                    <span className={style.status} >{product.status}</span>
                                 </div>
+
                             </div>
                         ))
                         }
                     </div>
-
                 </section>
             }
         </>

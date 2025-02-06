@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import style from './category.module.css';
 import { Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
 export default function Category() {
     const { data, error, isLoading } = useFetch(`${import.meta.env.VITE_BURL}/categories/active`);
@@ -15,24 +16,26 @@ export default function Category() {
     }
     return (
         <section className={style.category}>
+            <Container>
 
-            <Swiper
-                modules={[Navigation]}
-                navigation
-                slidesPerView={3}
-                loop={true}
-                
-            >
+                <Swiper
+                    modules={[Navigation]}
+                    navigation
+                    slidesPerView={3}
+                    loop={true}
 
-                {data.categories.map(category =>
-                    <SwiperSlide key={category._id} className='text-center'  >
-                        <Link to={`/categories/${category._id}`}>
-                            <img src={category.image.secure_url} width={100} />
-                        </Link>
-                    </SwiperSlide>
-                )
-                }
-            </Swiper>
+                >
+
+                    {data.categories.map(category =>
+                        <SwiperSlide key={category._id} className='text-center'  >
+                            <Link to={`/categories/${category._id}`}>
+                                <img src={category.image.secure_url} width={100} />
+                            </Link>
+                        </SwiperSlide>
+                    )
+                    }
+                </Swiper>
+            </Container>
 
         </section>
     )

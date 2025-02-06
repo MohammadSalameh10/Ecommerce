@@ -9,8 +9,18 @@
     padding: 15px 20px;
     border-radius: 9px;
     width: calc((100% - 24px) / 4);
+    position: relative;
 }
 
+.discount{
+    position: absolute;
+    left: 10px;
+    color: white;
+    background-color: #DC2626;
+    font-size: 12px;
+    padding: 5px 7px;
+    border-radius: 10px;
+}
 .product .productImage{
     text-align: center;
 }
@@ -30,6 +40,9 @@ font-size: 13px
     font-size: 20px;
     text-decoration: line-through;
 }
+
+
+
 .product .buy{
     background-color: #16A34A;
     padding: 6px 9px 9px 8px;
@@ -40,6 +53,7 @@ font-size: 13px
     color: #16A34A;
     font-size: 13px;
     font-weight: bold;
+    
 }
 @media screen and (max-width: 1200px){
     .product{
