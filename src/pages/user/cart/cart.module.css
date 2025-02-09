@@ -1,0 +1,26 @@
+.cart{
+    padding: 50px 0;
+}
+
+.cart span{
+    font-size: 13px;
+}
+
+thead{
+ box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+.quantitys{
+    width: fit-content;
+}
+.quantity {
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+}
+
+.quantity button {
+    background-color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 20px;
+}

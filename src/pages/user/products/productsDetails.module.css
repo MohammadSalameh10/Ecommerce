@@ -62,6 +62,7 @@
 .quantity {
     border: 1px solid #D1D5DB;
     border-radius: 6px;
+
 }
 
 .quantity button {
@@ -78,7 +79,13 @@
     border-radius: 8px;
 }
 
-.cart a,
+.cart button {
+    border: none;
+    background-color: #634C9F;
+    padding: 0;
+}
+
+.cart button,
 .buy a {
     color: white;
     font-size: 14px;

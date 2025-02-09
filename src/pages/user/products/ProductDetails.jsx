@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Loading from '../../../components/user/loading/Loading';
 import useFetch from '../../../hooks/useFetch';
 import { Container } from 'react-bootstrap';
@@ -15,9 +15,43 @@ import Tabs from 'react-bootstrap/Tabs';
 import style from './productsDetails.module.css';
 import Rating from '../../../components/user/rating/Rating';
 import RelatedProducts from '../../../components/user/products/RelatedProducts';
+import { Slide, toast } from 'react-toastify';
 export default function ProductDetails() {
     const { productId } = useParams();
     const { data, error, isLoading } = useFetch(`${import.meta.env.VITE_BURL}/products/${productId}`);
+    const navigate = useNavigate();
+
+    const addProductToCart = async () => {
+      const token = localStorage.getItem('userToken');
+      try{
+        const response = await axios.post(`${import.meta.env.VITE_BURL}/cart`,
+            {
+                productId: productId,
+            },
+            {
+                headers: {
+                    Authorization: `Tariq__${token}`,
+                },
+            }
+         )
+         if(response.status === 201){
+            toast.success('product add successfuly', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Slide,
+              });
+              navigate('/cart');
+         }
+      }catch(error){
+        console.log(error);
+      }
+    } 
 
     if (isLoading) {
         return <Loading />
@@ -56,14 +90,9 @@ export default function ProductDetails() {
                                 </div>
                                 <Link className={style.whatsOrder}>Order on WhatsApp</Link>
                                 <div className={`${style.payment} d-flex gap-2 py-3 align-items-center`}>
-                                    <div className={`${style.quantity} d-flex align-items-center gap-3`}>
-                                        <button >-</button>
-                                        <span >1</span>
-                                        <button >+</button>
-                                    </div>
                                     <div className={`${style.cart} d-flex gap-2`}>
                                         <img src={cart} />
-                                        <Link>Add to cart</Link>
+                                        <button onClick={()=>addProductToCart()}>Add to cart</button>
                                     </div>
                                     <div className={`${style.buy} d-flex gap-2`}>
                                         <img src={cart} />

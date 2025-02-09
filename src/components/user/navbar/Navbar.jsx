@@ -59,7 +59,7 @@ export default function CustomNavbar() {
               <img src={wishlist} className='d-lg-block d-none' />
               <span className='d-lg-none d-block'>Wishlist</span>
             </Nav.Link>
-            <Nav.Link as={Link} to={'/'} >
+            <Nav.Link as={Link} to={'/cart'} >
               <img src={cart} className='d-lg-block d-none' />
               <span className='d-lg-none d-block'>Cart</span>
             </Nav.Link>
