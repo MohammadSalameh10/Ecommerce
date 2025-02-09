@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Loading from '../../../components/user/loading/Loading';
 import axios from 'axios';
 import { Container } from 'react-bootstrap';
-import style from './Cart.module.css';
+import style from './cart.module.css';
 
 
 export default function Cart() {

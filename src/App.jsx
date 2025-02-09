@@ -16,6 +16,7 @@ import AuthProtectedRoute from './components/user/AuthProtectedRoute';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Contact from './pages/user/contact/Contact';
 import Cart from './pages/user/cart/Cart';
+import ProtectRoute from './components/user/ProtectRoute';
 
 export default function App() {
 
@@ -40,7 +41,11 @@ export default function App() {
       },
       {
         path: '/',
-        element: <UserLayout />,
+
+        element:
+          <ProtectRoute>
+            <UserLayout />
+          </ProtectRoute>,
         children: [
           {
             path: '/',
@@ -64,7 +69,7 @@ export default function App() {
           },
           {
             path: 'cart',
-            element:<Cart />
+            element: <Cart />
           }
         ]
       },
