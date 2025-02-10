@@ -13,12 +13,11 @@ tr,td,th{
 thead{
  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
 }
-.quantitys{
-    width: fit-content;
-}
+
 .quantity {
     border: 1px solid #D1D5DB;
     border-radius: 6px;
+
 }
 
 .quantity button {
@@ -28,6 +27,23 @@ thead{
     padding: 5px 10px;
     font-size: 20px;
 }
+
+.removeItem{
+    background-color: #DC2626;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+.clearBtn{
+    background-color: #634C9F;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 14px;
+}
+
 
 @media (max-width: 768px) {
     tr,td,th{
@@ -45,5 +61,8 @@ thead{
 @media (max-width: 400px) {
        table .productName{
        display: none;
+       }
+       .quantity{
+        gap: 5px !important;
        }
 }

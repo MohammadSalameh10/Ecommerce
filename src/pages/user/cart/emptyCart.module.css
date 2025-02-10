@@ -1,0 +1,20 @@
+.emptyCart{
+    padding: 70px 0;
+}
+.emptyCart .emptyCartText{
+    border: 1px solid #E5E7EB;
+    width: 50%;
+    padding: 10px 0px;
+}
+.emptyCart h1{
+    font-size: 18px;
+    color: #F03E3E;
+}
+.emptyCart a{
+    background-color: #212529;
+    color: #fff;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+}

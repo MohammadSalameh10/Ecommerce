@@ -17,14 +17,16 @@ import Rating from '../../../components/user/rating/Rating';
 import RelatedProducts from '../../../components/user/products/RelatedProducts';
 import { Slide, toast } from 'react-toastify';
 import { CartContext } from '../../../components/user/context/CartContext';
+
 export default function ProductDetails() {
     const { productId } = useParams();
     const { data, error, isLoading } = useFetch(`${import.meta.env.VITE_BURL}/products/${productId}`);
     const navigate = useNavigate();
-
     const { cartCount, setCartCount } = useContext(CartContext);
+    const [loading, setLoading] = useState(false);
     const addProductToCart = async () => {
-      const token = localStorage.getItem('userToken');
+    const token = localStorage.getItem('userToken');
+    setLoading(true);
       try{
         const response = await axios.post(`${import.meta.env.VITE_BURL}/cart`,
             {
@@ -39,7 +41,7 @@ export default function ProductDetails() {
          if(response.status === 201){
             toast.success('product add successfuly', {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 1000,
                 hideProgressBar: false,
                 closeOnClick: false,
                 pauseOnHover: true,
@@ -53,6 +55,8 @@ export default function ProductDetails() {
          }
       }catch(error){
         console.log(error);
+      }finally{
+        setLoading(false);
       }
     } 
 
@@ -95,7 +99,7 @@ export default function ProductDetails() {
                                 <div className={`${style.payment} d-flex gap-2 py-3 align-items-center`}>
                                     <div className={`${style.cart} d-flex gap-2`}>
                                         <img src={cart} />
-                                        <button onClick={()=>addProductToCart()}>Add to cart</button>
+                                        <button onClick={()=>addProductToCart() } disabled={loading}>{loading ? "Add to cart..." : "Add to cart"}</button>
                                     </div>
                                     <div className={`${style.buy} d-flex gap-2`}>
                                         <img src={cart} />

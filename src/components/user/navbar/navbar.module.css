@@ -67,4 +67,8 @@ border-radius: 50%;
     font-size: 15px;
     font-weight: bold;
    }
+
+   .cartCount{
+    right: -15px;
+    }
 }

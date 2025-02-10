@@ -64,10 +64,8 @@ const { cartCount } = useContext(CartContext);
               <span className='d-lg-none d-block'>Wishlist</span>
             </Nav.Link>
             <Nav.Link as={Link} to={'/cart'} className='position-relative'>
-         
              <span className={style.cartCount}>{cartCount}</span> 
               <img src={cart} className='d-lg-block d-none' />
-            
               <span className='d-lg-none d-block'>Cart</span>
             </Nav.Link>
           </Nav>
