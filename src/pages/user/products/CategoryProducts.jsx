@@ -19,10 +19,10 @@ export default function CategoryProducts() {
             {error ? <div className='alert alert-danger m-0'>{error}</div> :
                 <section className={`${style.products}`}>
                     <Container>
-                        <div className={`${style.productsContent} d-flex gap-1 flex-wrap`}>
+                        <div className={`${style.productsContent} d-flex gap-2 flex-wrap`}>
                             {
                                 data.products.map(product =>
-                                    <div className={`${style.product} d-flex flex-column gap-1`} key={product._id}>
+                                    <div className={`${style.product} d-flex flex-column gap-2`} key={product._id}>
                                         <span className={style.discount}>{product.discount}%</span>
                                         <div className='text-center'>
                                             <img src={product.mainImage.secure_url} />

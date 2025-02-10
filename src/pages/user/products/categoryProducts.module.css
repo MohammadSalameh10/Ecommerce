@@ -11,7 +11,7 @@
 }
 
 .product {
-    width: calc((100% - 24px) / 3);
+    width: calc((100% - 16px) / 3);
     background-color: white;
     border-radius: 9px;
     padding: 10px 20px 20px 20px;
@@ -49,4 +49,15 @@
     padding: 10px 15px;
     border-radius: 9px;
     text-align: center;
+}
+@media (max-width: 992px) {
+    .product {
+        width: calc((100% - 16px) / 2);
+    }
+}
+
+@media (max-width: 768px) {
+    .product {
+        width: 100%;
+    }
 }
