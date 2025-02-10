@@ -29,7 +29,7 @@ export default function Category() {
                     {data.categories.map(category =>
                         <SwiperSlide key={category._id} className='text-center'  >
                             <Link to={`/categories/${category._id}`}>
-                                <img src={category.image.secure_url} width={100} />
+                                <img src={category.image.secure_url} width={90} />
                             </Link>
                         </SwiperSlide>
                     )

@@ -18,7 +18,7 @@ export default function Products() {
                 <section className={`${style.products}`}>
                     <Container>
                         <h2 className={style.productTitle}>Category Products</h2>
-                        <div className={`${style.productsContent} d-flex gap-1 flex-wrap`}>
+                        <div className={`${style.productsContent} d-flex gap-2 flex-wrap`}>
                             {
                                 data.products.map(product =>
                                         <div className={`${style.product} d-flex flex-column gap-1`} key={product._id}>
