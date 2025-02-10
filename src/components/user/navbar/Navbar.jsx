@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,7 +9,11 @@ import user from '../../../assets/images/navbar/user.svg';
 import wishlist from '../../../assets/images/navbar/wishlist.svg';
 import cart from '../../../assets/images/navbar/cart.svg';
 import style from './navbar.module.css';
+import { CartContext } from '../context/CartContext';
 export default function CustomNavbar() {
+
+const { cartCount } = useContext(CartContext);
+
   return (
     <Navbar expand="lg" className={`${style.navbar} `}>
       <Container>
@@ -59,8 +63,11 @@ export default function CustomNavbar() {
               <img src={wishlist} className='d-lg-block d-none' />
               <span className='d-lg-none d-block'>Wishlist</span>
             </Nav.Link>
-            <Nav.Link as={Link} to={'/cart'} >
+            <Nav.Link as={Link} to={'/cart'} className='position-relative'>
+         
+             <span className={style.cartCount}>{cartCount}</span> 
               <img src={cart} className='d-lg-block d-none' />
+            
               <span className='d-lg-none d-block'>Cart</span>
             </Nav.Link>
           </Nav>

@@ -17,6 +17,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import Contact from './pages/user/contact/Contact';
 import Cart from './pages/user/cart/Cart';
 import ProtectRoute from './components/user/ProtectRoute';
+import CartContextProvider from './components/user/context/CartContext';
 
 export default function App() {
 
@@ -41,11 +42,12 @@ export default function App() {
       },
       {
         path: '/',
-
         element:
+        <CartContextProvider>
           <ProtectRoute>
             <UserLayout />
-          </ProtectRoute>,
+          </ProtectRoute>
+        </CartContextProvider>,
         children: [
           {
             path: '/',
@@ -86,8 +88,10 @@ export default function App() {
 
   return (
     <>
+
       <ToastContainer />
       <RouterProvider router={router} />
+ 
     </>
   )
 }

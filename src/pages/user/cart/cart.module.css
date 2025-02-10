@@ -6,6 +6,10 @@
     font-size: 13px;
 }
 
+tr,td,th{
+  padding: 25px 0px 25px 60px;
+}
+
 thead{
  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
 }
@@ -23,4 +27,23 @@ thead{
     border-radius: 6px;
     padding: 5px 10px;
     font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    tr,td,th{
+        padding: 25px 0px 25px 15px;
+      }
+}
+@media (max-width: 576px) {
+   table{
+    font-size: 12px;
+   }
+   table .productName{
+    font-size: 10px;
+   }
+}
+@media (max-width: 400px) {
+       table .productName{
+       display: none;
+       }
 }

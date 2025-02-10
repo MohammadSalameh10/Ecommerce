@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Loading from '../../../components/user/loading/Loading';
 import useFetch from '../../../hooks/useFetch';
@@ -16,11 +16,13 @@ import style from './productsDetails.module.css';
 import Rating from '../../../components/user/rating/Rating';
 import RelatedProducts from '../../../components/user/products/RelatedProducts';
 import { Slide, toast } from 'react-toastify';
+import { CartContext } from '../../../components/user/context/CartContext';
 export default function ProductDetails() {
     const { productId } = useParams();
     const { data, error, isLoading } = useFetch(`${import.meta.env.VITE_BURL}/products/${productId}`);
     const navigate = useNavigate();
 
+    const { cartCount, setCartCount } = useContext(CartContext);
     const addProductToCart = async () => {
       const token = localStorage.getItem('userToken');
       try{
@@ -47,6 +49,7 @@ export default function ProductDetails() {
                 transition: Slide,
               });
               navigate('/cart');
+              setCartCount(cartCount + 1);
          }
       }catch(error){
         console.log(error);
