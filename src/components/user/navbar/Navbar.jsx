@@ -54,11 +54,6 @@ const { cartCount } = useContext(CartContext);
               <img src={user} className='d-lg-block d-none' />
               <span className='d-lg-none d-block'>My Profile</span>
             </Nav.Link>
-            <Nav.Link as={Link} to={'/auth/login'} className={`${style.login} d-flex flex-column`}>
-              <span className='d-lg-block d-none'>Sign in</span>
-              <span className='d-lg-block d-none'>Account</span>
-              <span className='d-lg-none d-block'>Sign in</span>
-            </Nav.Link>
             <Nav.Link as={Link} to={'/'} >
               <img src={wishlist} className='d-lg-block d-none' />
               <span className='d-lg-none d-block'>Wishlist</span>

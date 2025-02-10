@@ -98,7 +98,7 @@ export default function Cart() {
     }
 
     const removeItem = async (productId) => {
-        setLoading(true);
+    setLoading(true);
       try {
             const response = await axios.patch(`${import.meta.env.VITE_BURL}/cart/removeItem`,
                 {
@@ -125,7 +125,8 @@ export default function Cart() {
         setLoading(true);
         setClear(true);
         try {
-            const response = await axios.patch(`${import.meta.env.VITE_BURL}/cart/clear`, null,
+            const response = await axios.patch(`${import.meta.env.VITE_BURL}/cart/clear`, 
+                null,
                 {
                     headers: {
                         Authorization: `Tariq__${token}`
