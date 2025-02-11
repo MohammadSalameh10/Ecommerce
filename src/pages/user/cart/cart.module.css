@@ -43,6 +43,9 @@ thead{
     padding: 10px 15px;
     font-size: 14px;
 }
+.clearBtn:disabled{
+    background-color: #9CA3AF;
+}
 
 
 @media (max-width: 768px) {

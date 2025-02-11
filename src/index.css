@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+
 * {
     font-family: var(--mainFont);
 }
@@ -17,7 +18,8 @@ a {
 }
 
 .swiper-button-prev, 
-.swiper-button-next{
+.swiper-button-next
+{
     color: #634C9F !important;
 }
 .swiper-button-prev:hover,
@@ -44,4 +46,12 @@ a {
     color: #111827;
 }
 
+.page-link{
+    color: #634C9F !important;
+}
+.active>.page-link{
+    background-color: #634C9F !important;
+    border-color: #634C9F !important;
+    color: #fff !important;
+}
 

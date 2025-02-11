@@ -18,6 +18,8 @@ import Contact from './pages/user/contact/Contact';
 import Cart from './pages/user/cart/Cart';
 import ProtectRoute from './components/user/ProtectRoute';
 import CartContextProvider from './components/user/context/CartContext';
+import ForgetPassword from './pages/user/forgetPassword/ForgetPassword';
+import ChangePassword from './pages/user/changePassword/ChangePassword';
 
 export default function App() {
 
@@ -37,6 +39,14 @@ export default function App() {
           {
             path: 'login',
             element: <Login />
+          },
+          {
+            path: 'forgetPassword',
+            element:<ForgetPassword/>
+          },
+          {
+            path:'changePassword',
+            element:<ChangePassword/>
           }
         ]
       },
