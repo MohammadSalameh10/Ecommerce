@@ -8,7 +8,7 @@ export default function Profile() {
             <div className='d-flex gap-4'>
             <Sidebar>
                 <Menu>
-                    <MenuItem component={<Link to="/profile/info" />}> Info</MenuItem>
+                    <MenuItem component={<Link to="/profile/info" />} > Info</MenuItem>
                     <MenuItem component={<Link to="/profile/orders" />}> Orders</MenuItem>
                 </Menu>
             </Sidebar>

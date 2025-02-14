@@ -1,4 +1,4 @@
-.navbar{
+.navbar {
     border-bottom: 1px solid #E5E7EB;
     background-color: #F3F4F6;
     position: sticky;
@@ -6,7 +6,7 @@
     z-index: 1000;
 }
 
-.websiteName span:nth-child(1){
+.websiteName span:nth-child(1) {
     color: #634C9F;
     font-size: 9px;
     position: absolute;
@@ -14,61 +14,88 @@
     left: 70px;
     font-weight: bold;
 }
-.websiteName span:nth-child(2){
+
+.websiteName span:nth-child(2) {
     color: #111827;
     font-size: 24px;
     font-weight: bold;
 }
-.location span:nth-child(1){
+
+.location span:nth-child(1) {
     color: #6B7280;
     font-size: 11px;
 }
-.location span:nth-child(2){
+
+.location span:nth-child(2) {
     color: #030712;
     font-weight: bold;
     font-size: 13px;
 }
-.nav a{
+
+.nav a {
     color: #030712;
     font-size: 15px;
     font-weight: bold;
-   
+
 }
-.login span:nth-child(1){
-font-size: 11px;
-color:#6B7280 ;
+
+.login span:nth-child(1) {
+    font-size: 11px;
+    color: #6B7280;
 }
-.login span:nth-child(2){
+
+.login span:nth-child(2) {
     font-size: 13px;
-    color:#030712 ;
-    font-weight: bold;
-}
-
-.cartCount{
-position: absolute;
-top: -2px;
-right: 0px;
-background-color: #DC2626;
-color: white;
-font-size: 10px;
-padding: 2px 6.44px;
-border-radius: 50%;
-}
-@media (max-width: 992px){
-   .nav{
-    gap: 0px !important;
-    align-items: flex-start !important;
-   }
-    .navs{
-    align-items: flex-start !important;
-   }
-   .navs a{
     color: #030712;
-    font-size: 15px;
     font-weight: bold;
-   }
+}
 
-   .cartCount{
-    right: -14px;
+
+.wishCount {
+    position: absolute;
+    top: -2px;
+    right: -1.7px;
+    background-color: #DC2626;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6.44px;
+    border-radius: 50%;
+}
+
+.cartCount {
+    position: absolute;
+    top: -2px;
+    right: 0px;
+    background-color: #DC2626;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6.44px;
+    border-radius: 50%;
+}
+
+
+
+@media (max-width: 992px) {
+    .nav {
+        gap: 0px !important;
+        align-items: flex-start !important;
+    }
+
+    .navs {
+        align-items: flex-start !important;
+    }
+
+    .navs a {
+        color: #030712;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .wishCount {
+        right: -14px;
+    }
+
+    .cartCount {
+        right: -14px;
     }
 }
