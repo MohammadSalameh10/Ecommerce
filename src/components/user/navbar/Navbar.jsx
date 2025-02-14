@@ -50,7 +50,7 @@ const { cartCount } = useContext(CartContext);
         </Navbar.Collapse>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={`${style.navs} ms-auto d-flex align-items-center`}>
-            <Nav.Link as={Link} to={'/'}>
+            <Nav.Link as={Link} to={'/profile'}>
               <img src={user} className='d-lg-block d-none' />
               <span className='d-lg-none d-block'>My Profile</span>
             </Nav.Link>

@@ -204,7 +204,7 @@ export default function Cart() {
                         )}
                     </tbody>
                 </table>
-                {cartCount ? <button className={`${style.clearBtn} `} onClick={() => clearCart()} disabled={(clear||loading)}>{clear?"Clear Cart...":"Clear Cart"}</button> : ""}
+                {cartCount ? <button className={`${style.clearBtn} `} onClick={() => clearCart()} disabled={(clear||loading)}>{clear?"Clearing...":"Clear Cart"}</button> : ""}
             </Container>
         </section>:<EmptyCart />}
                         </>

@@ -20,6 +20,10 @@ import ProtectRoute from './components/user/ProtectRoute';
 import CartContextProvider from './components/user/context/CartContext';
 import ForgetPassword from './pages/user/forgetPassword/ForgetPassword';
 import ChangePassword from './pages/user/changePassword/ChangePassword';
+import Profile from './pages/user/profile/Profile';
+import Info from './pages/user/profile/Info';
+import Orders from './pages/user/profile/Orders';
+import UserContextProvider from './components/user/context/UserContext';
 
 export default function App() {
 
@@ -42,22 +46,24 @@ export default function App() {
           },
           {
             path: 'forgetPassword',
-            element:<ForgetPassword/>
+            element: <ForgetPassword />
           },
           {
-            path:'changePassword',
-            element:<ChangePassword/>
+            path: 'changePassword',
+            element: <ChangePassword />
           }
         ]
       },
       {
         path: '/',
         element:
-        <CartContextProvider>
-          <ProtectRoute>
-            <UserLayout />
-          </ProtectRoute>
-        </CartContextProvider>,
+          <UserContextProvider>
+            <CartContextProvider>
+              <ProtectRoute>
+                <UserLayout />
+              </ProtectRoute>
+            </CartContextProvider>
+          </UserContextProvider>,
         children: [
           {
             path: '/',
@@ -82,6 +88,20 @@ export default function App() {
           {
             path: 'cart',
             element: <Cart />
+          },
+          {
+            path: 'profile',
+            element: <Profile />,
+            children: [
+              {
+                path: 'info',
+                element: <Info />
+              },
+              {
+                path: 'orders',
+                element: <Orders />
+              }
+            ]
           }
         ]
       },
@@ -101,7 +121,7 @@ export default function App() {
 
       <ToastContainer />
       <RouterProvider router={router} />
- 
+
     </>
   )
 }

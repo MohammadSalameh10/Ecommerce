@@ -5,12 +5,15 @@ import { Container } from 'react-bootstrap';
 import Rating from '../rating/Rating';
 import carts from '../../../assets/images/details/carts.svg';
 import style from './relatedProducts.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 export default function RelatedProducts({ categoryId, productId }) {
 
 
     const { data, error, isLoading } = useFetch(`${import.meta.env.VITE_BURL}/products/category/${categoryId}`);
 
+    const goToProduct = () => {
+        const params = useParams();
+    }
     if (isLoading) {
         return <Loading />
     }
@@ -38,7 +41,7 @@ export default function RelatedProducts({ categoryId, productId }) {
                                 <div className='h-100 d-flex align-items-end'>
                                     <div className={`${style.buyRelated} d-flex align-items-center gap-2`}>
                                         <div className={style.buy}>
-                                            <Link to={`/products/${product._id}`} >
+                                            <Link to={`/products/${product._id}`} onClick={ ()=>goToProduct()} >
                                                 <img src={carts} />
                                             </Link>
                                         </div>
