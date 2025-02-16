@@ -1,0 +1,22 @@
+.info{
+   padding: 30px 0; 
+}
+.label{
+    font-size: 15px;
+    color: #666;
+    width: 270px;
+}
+.button{
+    background-color: #634C9F;
+    color: white;
+    padding: 15px 15px;
+    border-radius: 9px;
+    text-align: center;
+}
+.info button{
+    border: none;
+    background-color: #DC2626;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 9px;
+}

@@ -24,6 +24,7 @@ import Profile from './pages/user/profile/Profile';
 import Info from './pages/user/profile/Info';
 import Orders from './pages/user/profile/Orders';
 import UserContextProvider from './components/user/context/UserContext';
+import Photo from './pages/user/profile/Photo';
 
 export default function App() {
 
@@ -98,10 +99,22 @@ export default function App() {
                 element: <Info />
               },
               {
+                path: 'photo',
+                element: <Photo />
+              },
+              {
                 path: 'orders',
                 element: <Orders />
               }
             ]
+          },
+          {
+            path:'forgetPassword',
+            element:<ForgetPassword/>
+          },
+          {
+            path:'changePassword',
+            element:<ChangePassword/>
           }
         ]
       },

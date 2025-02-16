@@ -10,7 +10,7 @@ export default function ChangePassword() {
     const [serverError, setServerError] = useState(null);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
-
+    const userToken = localStorage.getItem('userToken');
 
     const changePassword = async (value) => {
       setIsLoading(true);
@@ -28,7 +28,11 @@ export default function ChangePassword() {
             theme: "dark",
             transition: Slide,
           });
-          navigate('/auth/login');
+         if(userToken){
+          navigate('/profile/info');
+         }else{
+           navigate('/auth/login');
+         }
         }
       } catch (error) {
         if (error.response.status === 409) {

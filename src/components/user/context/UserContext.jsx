@@ -7,6 +7,7 @@ export const UserContext = createContext();
 const UserContextProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         getUser();
     }, [])
@@ -21,11 +22,13 @@ const UserContextProvider = ({ children }) => {
             setUser(respnse.data.user);
         } catch (error) {
             console.log(error);
+        }finally{
+            setIsLoading(false);
         }
     }
 
 
-    return <UserContext.Provider value={{ user , setUser}}>
+    return <UserContext.Provider value={{ user , setUser ,isLoading }}>
         {children}
     </UserContext.Provider>
 }
