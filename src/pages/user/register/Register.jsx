@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import { Bounce, Slide, toast } from 'react-toastify';
+import { Slide, toast } from 'react-toastify';
 import { Container } from 'react-bootstrap';
 import style from './register.module.css';
 export default function Register() {
@@ -15,9 +15,12 @@ export default function Register() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
   const registerUser = async (value) => {
+    
     setIsLoading(true);
     try {
+     
       const response = await axios.post(`${import.meta.env.VITE_BURL}/auth/signup`, value);
+      
       if (response.status === 201) {
         toast.info('please check your email', {
           position: "top-right",
@@ -30,6 +33,7 @@ export default function Register() {
           theme: "dark",
           transition: Slide,
         });
+
         navigate('/auth/login');
       }
     } catch (error) {

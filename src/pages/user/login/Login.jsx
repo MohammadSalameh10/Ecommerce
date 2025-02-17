@@ -55,14 +55,8 @@ export default function Login() {
             <Form.Control type="password" placeholder="" {...register('password', { required: "Please enter your password" })} />
             {errors.password ? <div className='text-danger error'>{errors.password.message}</div> : null}
           </Form.Group>
-          <div className={`${style.check} d-flex justify-content-between align-items-center pb-3`}>
-            <div className='d-flex gap-2 align-items-center'>
-              <input type="checkbox" />
-              <span>Remember me</span>
-            </div>
-            <div>
+          <div className={`${style.check}  pb-3`}>
               <Link to={'/auth/forgetPassword'}>Lost your password?</Link>
-            </div>
           </div>
           <Button type='submit' className={`${style.button} w-100`} disabled={isLoading}>{isLoading ? "Loading..." : "Log in"}</Button>
           {serverError ? <div className='text-danger text-center error'>{serverError}</div> : null}

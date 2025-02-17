@@ -7,7 +7,7 @@ import Loading from '../../../components/user/loading/Loading';
 import { Link } from 'react-router-dom';
 import style from './info.module.css';
 export default function Info() {
-  const { user,setUser,isLoading } = useContext(UserContext);
+  const { user,setUser ,isLoading} = useContext(UserContext);
   const logOut = () => {
     localStorage.removeItem('userToken');
     setUser(null);
@@ -15,7 +15,9 @@ export default function Info() {
   }
 
   if (isLoading) {
-    return <Loading />
+    return <div className='w-100'>
+      <Loading/>
+    </div>
   }
   return (
     <section className={style.info}>

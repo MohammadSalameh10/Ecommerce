@@ -1,3 +1,20 @@
 .photo{
     padding: 30px 0px;
 }
+
+.photo img{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+.button{
+    background-color: #634C9F;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 9px;
+    text-align: center;
+    border: none;
+}
+.button:disabled{
+    background-color: #9CA3AF;
+}
