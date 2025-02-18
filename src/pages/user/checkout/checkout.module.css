@@ -1,0 +1,44 @@
+.order{
+   
+   padding: 50px 0;
+}
+.orderDetails{
+    background-color:rgba(0, 0, 0, 1%);
+    border: 1px solid #E5E7EB;
+    padding: 15px 20px;
+    border-radius: 6px;
+}
+.orderItem{
+    border-bottom: 1px solid #E5E7EB;
+}
+.order span{
+    font-size: 12px;
+    color: #9CA3AF;
+}
+.productName,
+.price{
+    color: #030712 !important;
+}
+.price{
+    font-size: 14px;
+    font-weight: 500;
+}
+.order p{
+    font-size: 13px;
+    color: #6B7280;
+}
+.privacy{
+    color: #374151 !important;
+   text-decoration: underline;
+   font-weight: 700;
+}
+.button{
+    background-color: #634C9F ;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.button:disabled{
+    background-color: #9CA3AF;
+}

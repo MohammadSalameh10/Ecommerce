@@ -25,6 +25,9 @@ import Info from './pages/user/profile/Info';
 import Orders from './pages/user/profile/Orders';
 import UserContextProvider from './components/user/context/UserContext';
 import Photo from './pages/user/profile/Photo';
+import Checkout from './pages/user/checkout/Checkout';
+
+
 
 export default function App() {
 
@@ -115,6 +118,10 @@ export default function App() {
           {
             path:'changePassword',
             element:<ChangePassword/>
+          },
+          {
+            path:'checkout',
+            element:<Checkout/>
           }
         ]
       },

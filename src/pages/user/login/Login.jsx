@@ -45,13 +45,13 @@ export default function Login() {
         <Form onSubmit={handleSubmit(loginUser)} className={`${style.form} m-auto d-flex flex-column `}>
          
           <Form.Group className="mb-1" controlId="email">
-            <Form.Label className={`${style.label}`} htmlFor='email'>Email address *</Form.Label>
+            <Form.Label className={`${style.label}`} >Email address *</Form.Label>
             <Form.Control type="email" placeholder="" {...register('email', { required: "Please enter your email" })} />
             {errors.email ? <div className='text-danger error'>{errors.email.message}</div> : null}
           </Form.Group>
 
           <Form.Group className="mb-2" controlId="password">
-            <Form.Label className={`${style.label}`} htmlFor='password'>Password *</Form.Label>
+            <Form.Label className={`${style.label}`} >Password *</Form.Label>
             <Form.Control type="password" placeholder="" {...register('password', { required: "Please enter your password" })} />
             {errors.password ? <div className='text-danger error'>{errors.password.message}</div> : null}
           </Form.Group>

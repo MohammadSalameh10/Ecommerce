@@ -43,7 +43,16 @@ thead{
     padding: 10px 15px;
     font-size: 14px;
 }
-.clearBtn:disabled{
+.checkBtn{
+    background-color: #212529;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 14px;
+}
+.clearBtn:disabled,
+.checkBtn:disabled{
     background-color: #9CA3AF;
 }
 

@@ -47,8 +47,8 @@ export default function ForgetPassword() {
           </div>
           <p className='text-center m-0'>Enter your email to send code.</p>
         </div>
-          <Form.Group className="mb-1" controlId="email">
-            <Form.Label className={`${style.label}`} htmlFor='email'>Email address *</Form.Label>
+          <Form.Group className="mb-2" controlId="email">
+            <Form.Label className={`${style.label}`} >Email address *</Form.Label>
             <Form.Control type="email" placeholder="" {...register('email', { required: "Please enter your email" })} />
             {errors.email ? <div className='text-danger error'>{errors.email.message}</div> : null}
           </Form.Group>

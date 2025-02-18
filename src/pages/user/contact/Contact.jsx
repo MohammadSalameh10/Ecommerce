@@ -70,26 +70,26 @@ export default function Contact() {
                             <div className={`${style.formName} d-flex gap-3`}>
                                 <div>
                                     <Form.Group className="mb-1" controlId="username"  >
-                                        <Form.Label htmlFor='username' className={style.formLabel}>Your name *</Form.Label>
+                                        <Form.Label  className={style.formLabel}>Your name *</Form.Label>
                                         <Form.Control type="text" placeholder="" className={style.input} />
                                     </Form.Group>
                                 </div>
 
                                 <div>
                                     <Form.Group className="mb-1 " controlId="email" >
-                                        <Form.Label htmlFor='email' className={style.formLabel}>Your email *</Form.Label>
+                                        <Form.Label  className={style.formLabel}>Your email *</Form.Label>
                                         <Form.Control type="email" placeholder="" className={style.input} />
                                     </Form.Group>
                                 </div>
                             </div>
 
                             <Form.Group className="mb-1" controlId="subject" >
-                                <Form.Label htmlFor='subject' className={style.formLabel}>Subject *</Form.Label>
+                                <Form.Label className={style.formLabel}>Subject *</Form.Label>
                                 <Form.Control type="text" placeholder="" />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="message" >
-                                <Form.Label htmlFor='message' className={style.formLabel}>Your message</Form.Label>
+                                <Form.Label  className={style.formLabel}>Your message</Form.Label>
                                 <Form.Control as="textarea" rows={3} />
                             </Form.Group>
                             <Button type='submit' className={style.sendButton}>Send Message</Button>

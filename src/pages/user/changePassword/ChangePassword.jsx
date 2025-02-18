@@ -56,19 +56,19 @@ export default function ChangePassword() {
         <Form onSubmit={handleSubmit(changePassword)} className={`${style.form} m-auto d-flex flex-column`}>
 
           <Form.Group className="mb-1" controlId="email" >
-            <Form.Label className={`${style.label}`} htmlFor='email'>Email address *</Form.Label>
+            <Form.Label className={`${style.label}`}>Email address *</Form.Label>
             <Form.Control type="email" placeholder="" {...register('email', { required: "Please enter your email" })} />
             {errors.email ? <div className='text-danger error'>{errors.email.message}</div> : null}
           </Form.Group>
 
           <Form.Group className="mb-1" controlId="password" >
-            <Form.Label className={`${style.label}`} htmlFor='password'>New Password *</Form.Label>
+            <Form.Label className={`${style.label}`} >New Password *</Form.Label>
             <Form.Control type="password" placeholder="" {...register('password', { required: "Please enter your password" })} />
             {errors.password ? <div className='text-danger error'>{errors.password.message}</div> : null}
           </Form.Group>
 
           <Form.Group className="mb-1" controlId="code" >
-            <Form.Label className={`${style.label}`} htmlFor='code'>Code *</Form.Label>
+            <Form.Label className={`${style.label}`} >Code *</Form.Label>
             <Form.Control type="text" placeholder="" {...register('code', { required: "Please enter your code" })} />
             {errors.code ? <div className='text-danger error'>{errors.code.message}</div> : null}
           </Form.Group>
