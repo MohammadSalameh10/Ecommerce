@@ -23,7 +23,7 @@ export default function HomeProduct() {
                                     <div className={`${style.product} d-flex flex-column gap-1`} key={product._id}>
                                         <span className={style.discount}>{product.discount}%</span>
                                         <div className='text-center'>
-                                            <img src={product.mainImage.secure_url} />
+                                            <img src={product.mainImage.secure_url} width={200}  />
                                         </div>
                                         <h2 className='fs-6'>{product.name}</h2>
                                         <div>

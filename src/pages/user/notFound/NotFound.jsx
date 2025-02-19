@@ -8,10 +8,10 @@ import style from './notfound.module.css'
 export default function NotFound() {
     return (
         <>
-            <CustomNavbar />
+       
             <section className={style.notFound}>
                 <Container>
-                    <div className='d-flex flex-column align-items-center justify-content-center text-center'>
+                    <div className='d-flex flex-column align-items-center justify-content-center text-center '>
                         <img src={notfound} />
                         <h1 className='fw-bold'>That Page Cant Be Found</h1>
                         <p>
@@ -22,7 +22,7 @@ export default function NotFound() {
                     </div>
                 </Container>
             </section>
-            <Footer />
+          
         </>
     )
 }

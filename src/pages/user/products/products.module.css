@@ -3,6 +3,36 @@
 
 }
 
+.productFilter {
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding: 20px;
+}
+
+.sortFilter {
+    width: 25%;
+}
+
+.priceFilter input {
+    width: 20%;
+}
+
+.goButton {
+    background-color: #634C9F;
+    color: white;
+    padding: 5px 5px;
+    border-radius: 7px;
+    border: none;
+}
+
+.searchButton {
+    background-color: #634C9F;
+    color: white;
+    padding: 5px 5px;
+    border-radius: 7px;
+    border: none;
+}
+
 .productTitle {
     font-size: 18px;
     font-weight: bold;
@@ -18,7 +48,8 @@
     border: 1px solid #E5E7EB;
     position: relative;
 }
-.discount{
+
+.discount {
     position: absolute;
     left: 10px;
     color: white;
@@ -27,6 +58,7 @@
     padding: 5px 7px;
     border-radius: 10px;
 }
+
 .priceDiscount {
     color: #DC2626;
     font-size: 25px;
@@ -39,7 +71,7 @@
     text-decoration: line-through;
 }
 
-.detailsButton{
+.detailsButton {
     height: 100%;
 }
 

@@ -25,40 +25,53 @@ export default function ProductDetails() {
     const { cartCount, setCartCount } = useContext(CartContext);
     const [loading, setLoading] = useState(false);
     const addProductToCart = async () => {
-    const token = localStorage.getItem('userToken');
-    setLoading(true);
-      try{
-        const response = await axios.post(`${import.meta.env.VITE_BURL}/cart`,
-            {
-                productId: productId,
-            },
-            {
-                headers: {
-                    Authorization: `Tariq__${token}`,
+        const token = localStorage.getItem('userToken');
+        setLoading(true);
+        try {
+            const response = await axios.post(`${import.meta.env.VITE_BURL}/cart`,
+                {
+                    productId: productId,
                 },
+                {
+                    headers: {
+                        Authorization: `Tariq__${token}`,
+                    },
+                }
+            )
+            if (response.status === 201) {
+                toast.success('product add successfuly', {
+                    position: "top-right",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    transition: Slide,
+                });
+                navigate('/cart');
+                setCartCount(cartCount + 1);
+            } 
+        } catch (error) {
+            console.log(error);
+            if (error.response.status === 409) {
+                toast.error('Product already add to cart', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    transition: Slide,
+                    });
             }
-         )
-         if(response.status === 201){
-            toast.success('product add successfuly', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-                transition: Slide,
-              });
-              navigate('/cart');
-              setCartCount(cartCount + 1);
-         }
-      }catch(error){
-        console.log(error);
-      }finally{
-        setLoading(false);
-      }
-    } 
+        } finally {
+            setLoading(false);
+        }
+    }
 
     if (isLoading) {
         return <Loading />
@@ -97,9 +110,9 @@ export default function ProductDetails() {
                                 </div>
                                 <Link className={style.whatsOrder}>Order on WhatsApp</Link>
                                 <div className={`${style.payment} d-flex gap-2 py-3 align-items-center`}>
-                                        <button onClick={()=>addProductToCart() } disabled={loading} className={`${style.cart} d-flex gap-2`}>
-                                            <img src={cart} />
-                                            {loading ? "Add to cart..." : "Add to cart"}</button>
+                                    <button onClick={() => addProductToCart()} disabled={loading} className={`${style.cart} d-flex gap-2`}>
+                                        <img src={cart} />
+                                        {loading ? "Add to cart..." : "Add to cart"}</button>
                                     <div className={`${style.buy} d-flex gap-2`}>
                                         <img src={cart} />
                                         <Link>Buy Now</Link>
