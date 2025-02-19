@@ -6,18 +6,21 @@ import Pagination from 'react-bootstrap/Pagination';
 import Rating from '../../../components/user/rating/Rating'
 import axios from 'axios'
 import style from './products.module.css'
-import { set } from 'react-hook-form';
+
 
 export default function Products() {
     const [currentPage, setCurrentPage] = useState(1);
     const [data, setData] = useState({});
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [sort, setSort] = useState('');
     const [search, setSearch] = useState('');
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(99999);
     const getProducts = async () => {
         setIsLoading(true);
         try {
-            const { data } = await axios.get(`${import.meta.env.VITE_BURL}/products?page=${currentPage}&limit=5&search=${search}`);
+            const { data } = await axios.get(`${import.meta.env.VITE_BURL}/products?page=${currentPage}&limit=5&sort=${sort}&search=${search}&price[gte]=${minPrice}&price[lte]=${maxPrice}`);
             setData(data);
             setError(null)
         } catch (error) {
@@ -42,11 +45,16 @@ export default function Products() {
         }
     };
 
- 
-
+    const handelSort = (e) => {
+        setSort(e.target.value);
+    }
+    const handelfilter = (e) => {
+        e.preventDefault();
+        getProducts();
+    }
     useEffect(() => {
         getProducts();
-    }, [currentPage]);
+    }, [currentPage, sort]);
 
     if (isLoading) {
         return <Loading />
@@ -58,29 +66,29 @@ export default function Products() {
                 <section className={`${style.products}`}>
                     <Container>
                         <div className={`${style.productFilter}`}>
-                            <Form className='d-flex align-items-center justify-content-between gap-2'>
-                                <Form.Select className={style.sortFilter}>
-                                    <option>Default</option>
-                                    <option value="1">A-Z</option>
-                                    <option value="2">Z-A</option>
-                                    <option value="3">Lowest price to highest price</option>
-                                    <option value="4">Highest price to lowest price</option>
-                                    <option value="5">Lowest discount to highest discount</option>
-                                    <option value="6">Highest discount to lowest discount</option>
+                            <Form className='d-flex align-items-center justify-content-between gap-2 '>
+                                <Form.Select className={style.sortFilter} onChange={handelSort} value={sort} >
+                                    <option value=" ">Default</option>
+                                    <option value="name">A-Z</option>
+                                    <option value="-name">Z-A</option>
+                                    <option value="price">Lowest price to highest price</option>
+                                    <option value="-price">Highest price to lowest price</option>
+                                    <option value="discount">Lowest discount to highest discount</option>
+                                    <option value="-discount">Highest discount to lowest discount</option>
                                 </Form.Select>
 
-                                <div className={`${style.priceFilter} d-flex gap-2 align-items-center justify-content-center`}>
+                                <div className={`${style.priceFilter} d-flex gap-2 align-items-center justify-content-center `}>
                                     <span>Min</span>
-                                    <Form.Control type="text" />
+                                    <Form.Control type="text" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} />
                                     <span>Max</span>
-                                    <Form.Control type="text" />
-                                    <button className={style.goButton}>Go</button>
+                                    <Form.Control value={maxPrice} type="text" onChange={(e) => setMaxPrice(e.target.value)} />
+                                    <button className={style.goButton} onClick={handelfilter}>Go</button>
                                 </div>
 
                                 <Form.Group controlId="search">
-                                    <Form.Control type="search" placeholder="Search..." />
+                                    <Form.Control type="search" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} />
                                 </Form.Group>
-                                <button className={style.searchButton} >Search</button>
+                                <button className={style.searchButton} onClick={handelfilter}>Search</button>
 
                             </Form>
                         </div>
