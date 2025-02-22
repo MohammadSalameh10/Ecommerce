@@ -8,11 +8,10 @@ import location from '../../../assets/images/navbar/location.svg';
 import userProfile from '../../../assets/images/navbar/user.svg';
 import wishlist from '../../../assets/images/navbar/wishlist.svg';
 import cart from '../../../assets/images/navbar/cart.svg';
-import style from './navbar.module.css';
 import { CartContext } from '../context/CartContext';
 import { UserContext } from '../context/UserContext';
 import { NavDropdown } from 'react-bootstrap';
-
+import style from './navbar.module.css';
 
 export default function CustomNavbar() {
 
@@ -61,17 +60,18 @@ const logOut = ()=>{
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={`${style.navs} ms-auto d-flex align-items-center`}>
             <Nav.Link as={Link} to={'/profile/info'} >
-            <div className='d-flex gap-2 align-items-center'>
+            <div className='d-flex  align-items-center'>
               <div className='d-flex'>
               <NavDropdown id="basic-nav-dropdown" className='d-lg-block d-none'>
               <NavDropdown.Item onClick={()=>logOut()} >Log Out</NavDropdown.Item>
             </NavDropdown>
-              <img src={userProfile} className='d-lg-block d-none' />
+            {user.image.secure_url? <img src={user.image.secure_url} className={`${style.profilePhoto} d-lg-block d-none`}/> : <img src={user.image} className={`${style.profilePhoto} d-lg-block d-none`} />}
+         
               </div>
               {user?<span className='pt-1 d-none d-lg-block'>{user.userName}</span>:''}
             </div>
             
-              <span className='d-lg-none d-block'>My Profile</span>
+              <span className='d-lg-none d-block'>Profile</span>
             </Nav.Link>
             <Nav.Link as={Link} to={'/'} className='position-relative'>
             <span className={`${style.wishCount}`}>0</span> 
@@ -81,6 +81,7 @@ const logOut = ()=>{
             <Nav.Link as={Link} to={'/cart'} className='position-relative'>
              <span className={`${style.cartCount} `}>{cartCount}</span> 
               <img src={cart} className='d-lg-block d-none' />
+             
               <span className='d-lg-none d-block'>Cart</span>
             </Nav.Link>
             <Nav.Link  onClick={()=>logOut()} className='d-lg-none d-block'>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useForm } from 'react-hook-form';
@@ -7,6 +6,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { Slide, toast } from 'react-toastify';
 import { Container } from 'react-bootstrap';
+import defaultPhoto from '../../../assets/images/user/profile.jpg';
 import style from './register.module.css';
 export default function Register() {
 
@@ -15,11 +15,21 @@ export default function Register() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
   const registerUser = async (value) => {
-    
+    const formData = new FormData();
+    formData.append('userName', value.userName);
+    formData.append('email', value.email);
+    formData.append('password', value.password);
+    formData.append('image', defaultPhoto);
+ 
     setIsLoading(true);
     try {
-     
-      const response = await axios.post(`${import.meta.env.VITE_BURL}/auth/signup`, value);
+      const response = await axios.post(`${import.meta.env.VITE_BURL}/auth/signup`, formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+      );
       
       if (response.status === 201) {
         toast.info('please check your email', {

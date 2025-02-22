@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Form } from 'react-bootstrap';
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { Slide, toast } from 'react-toastify';
 import { UserContext } from '../../../components/user/context/UserContext';
@@ -8,11 +8,12 @@ import Loading from '../../../components/user/loading/Loading';
 import style from './photo.module.css';
 
 export default function Photo() {
-    const [photo,setPhoto] = useState(null);
+  
     const { user, isLoading, setUser } = useContext(UserContext);
     const [photoPreview, setPhotoPreview] = useState(null);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [Loader, setLoader] = useState(false);
+    
     const updatePhoto = async (data) => {
         const formData = new FormData();
         const token = localStorage.getItem('userToken');
@@ -64,7 +65,8 @@ export default function Photo() {
             <h1 className='fw-bold fs-4'>Account Photo</h1>
             <Form onSubmit={handleSubmit(updatePhoto)} encType='multipart/form-data'>
                 <Form.Group className="d-flex flex-column gap-2 pb-3" controlId="formGroupPhoto">
-                    {photoPreview ? <img src={photoPreview} /> : <img src={user.image.secure_url} />}
+
+                    {photoPreview ? <img src={photoPreview} /> : user.image.secure_url? <img src={user.image.secure_url}/> : <img src={user.image} />}
                     <Form.Control type="file" {...register('image', { required: "Please enter photo befor updating" })} onChange={handlePhotoChange} />
                     {errors.image ? <div className='text-danger error'>{errors.image.message}</div> : null}
                 </Form.Group>

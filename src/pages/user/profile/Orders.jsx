@@ -73,7 +73,8 @@ export default function Orders() {
             <h2><span className={style.orderID}>Order ID: </span>{order._id}</h2>
             <div className={`${style.orderStatus} d-flex flex-column`}>
               <span>{new Date(order.createdAt).toLocaleString()}</span>
-              <span className='text-end'>{order.status}</span>
+              {order.status === 'pending' ? <span className='text-end text-warning fw-bold'>{order.status}</span> : <span className='text-end text-success fw-bold'>{order.status}</span>}
+              
             </div>
           </div>
           <div className={`${style.orderProducts} pb-2`} >
@@ -94,11 +95,11 @@ export default function Orders() {
           </div>
           <div className={`${style.orderPayment} pt-2 d-flex flex-column gap-3`}>
             <div className='d-flex justify-content-between'>
-              <span>Payment Method</span>
+              <span className='fw-bold'>Payment Method</span>
               <span>{order.paymentType}</span>
             </div>
             <div className='d-flex justify-content-between'>
-              <span>Total</span>
+              <span className='fw-bold'>Total</span>
               <span>
               ${ order.products.reduce((sum, item) => sum + (item.finalPrice * item.quantity), 0)}</span>
             </div>

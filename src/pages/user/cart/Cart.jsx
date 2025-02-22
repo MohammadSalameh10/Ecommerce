@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react'
 import Loading from '../../../components/user/loading/Loading';
 import axios from 'axios';
 import { Container } from 'react-bootstrap';
-import style from './cart.module.css';
 import { CartContext } from '../../../components/user/context/CartContext';
 import { useContext } from 'react';
 import { Slide, toast } from 'react-toastify';
 import {  useNavigate } from 'react-router-dom';
 import EmptyCart from './EmptyCart';
-
+import style from './cart.module.css';
 
 
 export default function Cart() {
@@ -193,7 +192,7 @@ export default function Cart() {
                                         <td >
                                             <div className='d-flex justify-content-center'>
                                                 <div className={`${style.quantity} d-flex align-items-center gap-3 `}>
-                                                    <button onClick={() => decreaseQuantity(item.productId)} disabled={loading}>-</button>
+                                                    <button onClick={() => decreaseQuantity(item.productId)} disabled={(loading||(item.quantity == 1))}>-</button>
                                                     <span >{item.quantity}</span>
                                                     <button onClick={() => increaseQuantity(item.productId)} disabled={loading}>+</button>
                                                 </div>

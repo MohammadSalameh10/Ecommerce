@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Container, Form, FormLabel } from 'react-bootstrap'
+import { Button, Container, Form } from 'react-bootstrap'
 import payment from '../../../assets/images/advantages/payment.svg'
 import sales from '../../../assets/images/advantages/sales.svg'
 import quality from '../../../assets/images/advantages/quality.svg'

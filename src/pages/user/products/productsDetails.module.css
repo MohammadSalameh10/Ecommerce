@@ -80,12 +80,13 @@
     border: none;
 }
 
-.cart:disabled{
+.cart:disabled,
+.buy:disabled {
     background-color: #9CA3AF;
 }
 
 .cart,
-.buy a {
+.buy{
     color: white;
     font-size: 14px;
 }
@@ -94,6 +95,7 @@
     background-color: #212529;
     padding: 10px 20px;
     border-radius: 8px;
+    border: none;
 }
 
 .directions {

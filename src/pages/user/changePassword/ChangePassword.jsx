@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap'
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Slide, toast } from 'react-toastify';
 import style from './changePassword.module.css'
 export default function ChangePassword() {

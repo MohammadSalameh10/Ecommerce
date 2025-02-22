@@ -3,7 +3,7 @@ import { Col, Container, Form, Row } from 'react-bootstrap'
 import style from './checkout.module.css';
 import Loading from '../../../components/user/loading/Loading';
 import axios from 'axios';
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { Slide, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../../components/user/context/CartContext';

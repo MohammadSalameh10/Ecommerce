@@ -1,6 +1,5 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { Container, Row } from 'react-bootstrap';
+import React from 'react'
+import { Container } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import Loading from '../../../components/user/loading/Loading';
 import useFetch from '../../../hooks/useFetch';

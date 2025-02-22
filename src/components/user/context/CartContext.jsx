@@ -21,6 +21,7 @@ const CartContextProvider = ({ children }) => {
                     }
                 }
             );
+        
             setCartCount(response.data.count);
 
         } catch (error) {

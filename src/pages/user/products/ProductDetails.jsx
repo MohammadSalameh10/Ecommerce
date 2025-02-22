@@ -25,6 +25,7 @@ export default function ProductDetails() {
     const navigate = useNavigate();
     const { cartCount, setCartCount } = useContext(CartContext);
     const [loading, setLoading] = useState(false);
+    const [buyLoading, setBuyLoading] = useState(false);
     const token = localStorage.getItem('userToken');
     const [show, setShow] = useState(false);
     const [loader, setLoader] = useState(false);
@@ -81,6 +82,44 @@ export default function ProductDetails() {
             setLoading(false);
         }
     }
+
+    const buyProduct = async () => {
+        setBuyLoading(true);
+        try {
+            const response = await axios.post(`${import.meta.env.VITE_BURL}/cart`,
+                {
+                    productId: productId,
+                },
+                {
+                    headers: {
+                        Authorization: `Tariq__${token}`,
+                    },
+                }
+            )
+            if (response.status === 201) {
+                navigate('/checkout');
+                setCartCount(cartCount + 1);
+            }
+        } catch (error) {
+            console.log(error);
+            if (error.response.status === 409) {
+                toast.error('Product already add to cart', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    transition: Slide,
+                });
+            }
+        } finally {
+            setBuyLoading(false);
+    }
+}
+
   const addReview = async (value) => {
     setLoader(true);
     try{
@@ -160,13 +199,13 @@ export default function ProductDetails() {
                                 </div>
                                 <Link className={style.whatsOrder}>Order on WhatsApp</Link>
                                 <div className={`${style.payment} d-flex gap-2 py-3 align-items-center`}>
-                                    <button onClick={() => addProductToCart()} disabled={loading} className={`${style.cart} d-flex gap-2`}>
+                                    <button onClick={() => addProductToCart()} disabled={(loading||buyLoading)} className={`${style.cart} d-flex gap-2`}>
                                         <img src={cart} />
                                         {loading ? "Add to cart..." : "Add to cart"}</button>
-                                    <div className={`${style.buy} d-flex gap-2`}>
+                                    <button onClick={()=>buyProduct()} className={`${style.buy} d-flex gap-2`} disabled={(buyLoading||loading)}>
                                         <img src={cart} />
-                                        <Link>Buy Now</Link>
-                                    </div>
+                                        {buyLoading ? "Buying..." : "Buy now"}
+                                    </button>
                                 </div>
                                 <div className={`${style.directions} `}>
                                     <div className={`${style.paymentDirections} d-flex `} >

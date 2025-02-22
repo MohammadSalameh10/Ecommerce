@@ -1,11 +1,10 @@
 import React from 'react'
 import Loading from '../loading/Loading';
 import useFetch from '../../../hooks/useFetch';
-import { Container } from 'react-bootstrap';
 import Rating from '../rating/Rating';
 import carts from '../../../assets/images/details/carts.svg';
 import style from './relatedProducts.module.css';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 export default function RelatedProducts({ categoryId, productId }) {
 
 
