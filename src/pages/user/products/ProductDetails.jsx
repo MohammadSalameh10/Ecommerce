@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Loading from '../../../components/user/loading/Loading';
 import useFetch from '../../../hooks/useFetch';
-import { Container } from 'react-bootstrap';
+import { Button, Container, Form, Modal } from 'react-bootstrap';
 import cart from '../../../assets/images/details/cart.svg';
 import payment from '../../../assets/images/details/payment.svg';
 import warranty from '../../../assets/images/details/warranty.svg';
@@ -17,6 +17,7 @@ import Rating from '../../../components/user/rating/Rating';
 import RelatedProducts from '../../../components/user/products/RelatedProducts';
 import { Slide, toast } from 'react-toastify';
 import { CartContext } from '../../../components/user/context/CartContext';
+import { useForm } from 'react-hook-form';
 
 export default function ProductDetails() {
     const { productId } = useParams();
@@ -24,8 +25,16 @@ export default function ProductDetails() {
     const navigate = useNavigate();
     const { cartCount, setCartCount } = useContext(CartContext);
     const [loading, setLoading] = useState(false);
+    const token = localStorage.getItem('userToken');
+    const [show, setShow] = useState(false);
+    const [loader, setLoader] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const{register,handleSubmit,formState: { errors }}= useForm();
+
+
     const addProductToCart = async () => {
-        const token = localStorage.getItem('userToken');
+       
         setLoading(true);
         try {
             const response = await axios.post(`${import.meta.env.VITE_BURL}/cart`,
@@ -52,7 +61,7 @@ export default function ProductDetails() {
                 });
                 navigate('/cart');
                 setCartCount(cartCount + 1);
-            } 
+            }
         } catch (error) {
             console.log(error);
             if (error.response.status === 409) {
@@ -66,12 +75,53 @@ export default function ProductDetails() {
                     progress: undefined,
                     theme: "dark",
                     transition: Slide,
-                    });
+                });
             }
         } finally {
             setLoading(false);
         }
     }
+  const addReview = async (value) => {
+    setLoader(true);
+    try{
+        const response = await axios.post(`${import.meta.env.VITE_BURL}/products/${productId}/review`, value,
+            {
+                headers: {
+                    Authorization: `Tariq__${token}`,
+                }
+            }
+        );
+       if(response.status === 201){
+        toast.success('Review add successfuly', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Slide,
+          });
+       }
+    }catch(errors){
+         toast.error('You must delivered product befor rewiew', {
+                  position: "top-right",
+                  autoClose: 3000,
+                  hideProgressBar: false,
+                  closeOnClick: false,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "dark",
+                  transition: Slide,
+                });
+    }finally{
+        setLoader(false);
+        setShow(false)
+    }
+    
+  }
 
     if (isLoading) {
         return <Loading />
@@ -158,7 +208,7 @@ export default function ProductDetails() {
                                     <p className={style.productDescription}>{data.product.description}</p>
                                 </Tab>
                                 <Tab eventKey="reviews" title="Reviews">
-                                    <div className='d-flex flex-wrap gap-2'>
+                                    <div className='d-flex flex-wrap gap-2 pb-3'>
                                         {data.product.reviews.map((review) => (
                                             <div key={review._id} className={`${style.reviews} d-flex gap-3`}>
                                                 <div className={`${style.review} d-flex flex-column gap-3`}>
@@ -176,6 +226,38 @@ export default function ProductDetails() {
                                             </div>
                                         ))}
                                     </div>
+                                    <Modal show={show} onHide={handleClose}>
+                                        <Modal.Header closeButton>
+                                            <Modal.Title>Add Review</Modal.Title>
+                                        </Modal.Header>
+                                        <Modal.Body>
+                                            <Form onSubmit={handleSubmit(addReview)}>
+                                                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                                    <Form.Label>Comment</Form.Label>
+                                                    <Form.Control as="textarea" rows={3} placeholder='Enter comment' {...register('comment', { required: "Please enter your comment" })}/>
+                                                    {errors.comment ? <div className='text-danger error'>{errors.comment.message}</div> : null}
+                                                </Form.Group>
+                                                <Form.Group className="mb-3" controlId="e">
+                                                    <Form.Label>Rating</Form.Label>
+                                                    <Form.Control type="number" placeholder="Enter rating" {...register('rating', { required: "Please enter your rating" })} />
+                                                    {errors.rating ? <div className='text-danger error'>{errors.rating.message}</div> : null}
+                                                </Form.Group>
+
+                                                <Button variant="dark" type="submit" disabled={loader}>
+                                                    {loader ? "Review..." : "Review"}
+                                                </Button>
+
+                                            </Form>
+
+                                        </Modal.Body>
+                                        <Modal.Footer>
+                                            <Button variant="danger" onClick={handleClose}>
+                                                Close
+                                            </Button>
+                                        
+                                        </Modal.Footer>
+                                    </Modal>
+                                    <button className={style.reviewButton} onClick={handleShow}>Add Review</button>
                                 </Tab>
                             </Tabs>
                         </div>

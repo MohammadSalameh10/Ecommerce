@@ -20,7 +20,7 @@ export default function Footer() {
             <div className="container d-flex flex-column gap-5">
                 <div className={`${style.footerTop} d-flex justify-content-between`}>
                     <div className='footer-item'>
-                        <h2 className='fs-5'>Join our newsletter for £10 offs</h2>
+                        <h2 className='fs-5'>Join our newsletter for $10 offs</h2>
                         <p>Register now to get latest updates on promotions &
                             coupons.Don’t worry, we not spam!</p>
                     </div>

@@ -108,14 +108,14 @@ export default function Checkout() {
                                     {cart.map(item =>
                                         <div key={item._id} className='d-flex justify-content-between pb-3'>
                                             <span className={style.productName}>{item.details.name} <span className={`${style.productName} fw-bold`}>x{item.quantity}</span></span>
-                                            <span className={style.price}>&nbsp;{item.quantity * item.details.finalPrice}$</span>
+                                            <span className={style.price}>&nbsp;${item.quantity * item.details.finalPrice}</span>
                                         </div>
                                     )}
                                 </div>
                                 <div className={`${style.orderItem} d-flex justify-content-between pb-3`}>
                                     <span>Total</span>
-                                    <span className={style.price}>{
-                                        cart.reduce((sum, item) => sum + (item.details.finalPrice * item.quantity), 0)}$</span>
+                                    <span className={style.price}>${
+                                        cart.reduce((sum, item) => sum + (item.details.finalPrice * item.quantity), 0)}</span>
                                 </div>
                                 <p>Your personal data will be used to process your order,
                                     support your experience throughout this website, and for

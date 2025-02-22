@@ -6,7 +6,7 @@ import style from './cart.module.css';
 import { CartContext } from '../../../components/user/context/CartContext';
 import { useContext } from 'react';
 import { Slide, toast } from 'react-toastify';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import EmptyCart from './EmptyCart';
 
 
@@ -189,7 +189,7 @@ export default function Cart() {
                                             <img src={item.details.mainImage.secure_url} width={50} />
                                             <span className={`${style.productName} fw-bold`}>{item.details.name}</span>
                                         </td>
-                                        <td>{item.details.finalPrice}$</td>
+                                        <td>${item.details.finalPrice}</td>
                                         <td >
                                             <div className='d-flex justify-content-center'>
                                                 <div className={`${style.quantity} d-flex align-items-center gap-3 `}>
@@ -199,7 +199,7 @@ export default function Cart() {
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>{item.quantity * item.details.finalPrice}$</td>
+                                        <td>${item.quantity * item.details.finalPrice}</td>
                                         <td><button className={style.removeItem} onClick={() => removeItem(item.productId)} disabled={loading}>
                                             <i className="fa-solid fa-minus" style={{ color: '#ffffff' }} ></i>
                                         </button></td>
