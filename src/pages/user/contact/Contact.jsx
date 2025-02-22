@@ -5,8 +5,26 @@ import sales from '../../../assets/images/advantages/sales.svg'
 import quality from '../../../assets/images/advantages/quality.svg'
 import delivery from '../../../assets/images/advantages/delivery.svg'
 import location from '../../../assets/images/navbar/location.svg';
+import emailjs from '@emailjs/browser'
 import style from './contact.module.css'
+import { Slide, toast } from 'react-toastify'
 export default function Contact() {
+    const sendEmail = (e) => {
+        e.preventDefault();
+       emailjs.sendForm('service_uvud3qf', 'template_lswkq3g', e.target, 'mCYdNjJjUC6wpNCjc')
+       toast.success('You message send successfuly', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Slide,
+      });
+        e.target.reset();
+    }
     return (
         <section className={style.contact}>
             <Container>
@@ -66,31 +84,31 @@ export default function Contact() {
                     <div className={`${style.contactForm} `}>
                         <p>On dekande mydurtad mora även om skurkstat. Semirade timaheten rena. Radiogen pasam
                             inte loba även om prerade i garanterad traditionell specialitet till bebel.</p>
-                        <Form className={`${style.form} `}>
+                        <Form className={`${style.form} `} onSubmit={sendEmail}>
                             <div className={`${style.formName} d-flex gap-3`}>
                                 <div>
-                                    <Form.Group className="mb-1" controlId="username"  >
-                                        <Form.Label  className={style.formLabel}>Your name *</Form.Label>
-                                        <Form.Control type="text" placeholder="" className={style.input} />
+                                    <Form.Group className="mb-1"   >
+                                        <Form.Label htmlFor='nameForm'  className={style.formLabel}>Your name *</Form.Label>
+                                        <Form.Control type="text" placeholder="" className={style.input} id='nameForm' name='name_form' />
                                     </Form.Group>
                                 </div>
 
                                 <div>
-                                    <Form.Group className="mb-1 " controlId="email" >
-                                        <Form.Label  className={style.formLabel}>Your email *</Form.Label>
-                                        <Form.Control type="email" placeholder="" className={style.input} />
+                                    <Form.Group className="mb-1 "  >
+                                        <Form.Label  htmlFor='emailForm' className={style.formLabel}>Your email *</Form.Label>
+                                        <Form.Control type="email" placeholder="" className={style.input}  id='emailForm' name='email_form'/>
                                     </Form.Group>
                                 </div>
                             </div>
 
-                            <Form.Group className="mb-1" controlId="subject" >
-                                <Form.Label className={style.formLabel}>Subject *</Form.Label>
-                                <Form.Control type="text" placeholder="" />
+                            <Form.Group className="mb-1"  >
+                                <Form.Label  className={style.formLabel}>Subject *</Form.Label>
+                                <Form.Control type="text" placeholder=""  id='subjectForm' name='subject_form'/>
                             </Form.Group>
 
-                            <Form.Group className="mb-3" controlId="message" >
-                                <Form.Label  className={style.formLabel}>Your message</Form.Label>
-                                <Form.Control as="textarea" rows={3} />
+                            <Form.Group className="mb-3"  >
+                                <Form.Label   className={style.formLabel}>Your message</Form.Label>
+                                <Form.Control as="textarea" rows={3} id='messageForm' name='message_form'/>
                             </Form.Group>
                             <Button type='submit' className={style.sendButton}>Send Message</Button>
                         </Form>

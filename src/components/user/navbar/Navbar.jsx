@@ -27,7 +27,7 @@ const logOut = ()=>{
 
 
   return (
-    <Navbar expand="lg" className={`${style.navbar} `}>
+    <Navbar expand="lg" className={`${style.navbar}`}>
       <Container>
         <Navbar.Brand className='d-flex align-items-center gap-3'>
           <Link to={'/'} className='d-flex align-items-center gap-1'>

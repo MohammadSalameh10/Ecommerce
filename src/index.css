@@ -25,6 +25,7 @@ a {
 .swiper-button-prev:hover,
 .swiper-button-next:hover{
     background-color: #F3F4F6 !important;
+    
 }
 
 @media screen and (max-width: 576px) {
