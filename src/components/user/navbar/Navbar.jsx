@@ -16,7 +16,7 @@ import style from './navbar.module.css';
 export default function CustomNavbar() {
 
 const { cartCount } = useContext(CartContext);
-const {user ,setUser} = useContext(UserContext);
+const {user ,setUser,isLoading} = useContext(UserContext);
 const navigate = useNavigate();
 const logOut = ()=>{
   localStorage.removeItem('userToken');
@@ -65,7 +65,7 @@ const logOut = ()=>{
               <NavDropdown id="basic-nav-dropdown" className='d-lg-block d-none'>
               <NavDropdown.Item onClick={()=>logOut()} >Log Out</NavDropdown.Item>
             </NavDropdown>
-            {user.image.secure_url? <img src={user.image.secure_url} className={`${style.profilePhoto} d-lg-block d-none`}/> : <img src={user.image} className={`${style.profilePhoto} d-lg-block d-none`} />}
+            {isLoading?"":user.image.secure_url? <img src={user.image.secure_url} className={`${style.profilePhoto} d-lg-block d-none`}/> : <img src={user.image} className={`${style.profilePhoto} d-lg-block d-none`} />}
          
               </div>
               {user?<span className='pt-1 d-none d-lg-block'>{user.userName}</span>:''}
