@@ -65,7 +65,7 @@ const logOut = ()=>{
               <NavDropdown id="basic-nav-dropdown" className='d-lg-block d-none'>
               <NavDropdown.Item onClick={()=>logOut()} >Log Out</NavDropdown.Item>
             </NavDropdown>
-            {isLoading?"":user.image.secure_url? <img src={user.image.secure_url} className={`${style.profilePhoto} d-lg-block d-none`}/> : <img src={user.image} className={`${style.profilePhoto} d-lg-block d-none`} />}
+            {user?user.image.secure_url? <img src={user.image.secure_url} className={`${style.profilePhoto} d-lg-block d-none`}/> : <img src={user.image} className={`${style.profilePhoto} d-lg-block d-none`} /> :""}
          
               </div>
               {user?<span className='pt-1 d-none d-lg-block'>{user.userName}</span>:''}
