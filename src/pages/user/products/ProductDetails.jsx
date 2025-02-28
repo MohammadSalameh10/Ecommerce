@@ -60,6 +60,7 @@ export default function ProductDetails() {
                     theme: "dark",
                     transition: Slide,
                 });
+                window.scroll(0, 0);
                 navigate('/cart');
                 setCartCount(cartCount + 1);
             }
@@ -97,6 +98,7 @@ export default function ProductDetails() {
                 }
             )
             if (response.status === 201) {
+                window.scroll(0, 0);
                 navigate('/checkout');
                 setCartCount(cartCount + 1);
             }
@@ -293,7 +295,6 @@ export default function ProductDetails() {
                                             <Button variant="danger" onClick={handleClose}>
                                                 Close
                                             </Button>
-                                        
                                         </Modal.Footer>
                                     </Modal>
                                     <button className={style.reviewButton} onClick={handleShow}>Add Review</button>

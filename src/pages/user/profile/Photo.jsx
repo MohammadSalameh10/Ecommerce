@@ -67,7 +67,7 @@ export default function Photo() {
                 <Form.Group className="d-flex flex-column gap-2 pb-3" controlId="formGroupPhoto">
 
                     {photoPreview ? <img src={photoPreview} /> : user.image.secure_url? <img src={user.image.secure_url}/> : <img src={user.image} />}
-                    <Form.Control type="file" {...register('image', { required: "Please enter photo befor updating" })} onChange={handlePhotoChange} />
+                    <Form.Control type="file" {...register('image', { required: "Please enter photo befor updating" })} onChange={handlePhotoChange}  />
                     {errors.image ? <div className='text-danger error'>{errors.image.message}</div> : null}
                 </Form.Group>
                 <button type="submit" className={`${style.button} `} disabled={Loader}>{Loader ? 'updating...' : 'Update Photo'}</button>

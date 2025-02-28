@@ -8,6 +8,7 @@ export default function Orders() {
   const token = localStorage.getItem('userToken');
   const [isLoading, setIsLoading] = useState(true);
   const [orders, setOrders] = useState(null);
+  const [cancelLoading, setCancelLoading] = useState(false);
   const getOrders = async () => {
     try {
       const response = await axios.get(`${import.meta.env.VITE_BURL}/order`,
@@ -27,6 +28,7 @@ export default function Orders() {
   }
 
   const cancelOrder = async (orderID) => {
+    setCancelLoading(true);
     try{
       const response = await axios.patch(`${import.meta.env.VITE_BURL}/order/cancel/${orderID}`,
         null,
@@ -52,6 +54,8 @@ export default function Orders() {
       }
     }catch(error){
       console.log(error);
+    }finally{
+      setCancelLoading(false);
     }
   }
 
@@ -103,7 +107,7 @@ export default function Orders() {
               <span>
               ${ order.products.reduce((sum, item) => sum + (item.finalPrice * item.quantity), 0)}</span>
             </div>
-            {(order.status === 'pending')?  <Button className='btn btn-danger' onClick={()=>cancelOrder(order._id)}>Cancel</Button>:''}
+            {(order.status === 'pending')?  <Button className='btn btn-danger' onClick={()=>cancelOrder(order._id)} disabled={cancelLoading}>{cancelLoading?"Canceling...":"Cancel"}</Button>:''}
           </div>
         </div>
       )}

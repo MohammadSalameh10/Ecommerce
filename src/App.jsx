@@ -1,5 +1,4 @@
 import React from 'react'
-import CustomNavbar from './components/user/navbar/Navbar'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import AuthLayout from './layouts/AuthLayout';
 import DashboardLayout from './layouts/DashboardLayout';

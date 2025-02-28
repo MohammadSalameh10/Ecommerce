@@ -144,6 +144,7 @@ export default function Cart() {
                     theme: "dark",
                     transition: Slide,
                 });
+                window.scroll(0,0)
                 navigate('/');
                 setCartCount(0);
             }
@@ -156,6 +157,7 @@ export default function Cart() {
     }
 
     const checkout = () => {
+        window.scroll(0,0)
         navigate('/checkout');
     }
     useEffect(() => {

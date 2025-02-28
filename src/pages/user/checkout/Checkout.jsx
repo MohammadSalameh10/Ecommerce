@@ -104,7 +104,7 @@ export default function Checkout() {
                                     <span>Products</span>
                                     <span>Subtotal</span>
                                 </div>
-                                <div className={`${style.orderItem}`}>
+                                <div className={`${style.orderItem} `}>
                                     {cart.map(item =>
                                         <div key={item._id} className='d-flex justify-content-between pb-3'>
                                             <span className={style.productName}>{item.details.name} <span className={`${style.productName} fw-bold`}>x{item.quantity}</span></span>

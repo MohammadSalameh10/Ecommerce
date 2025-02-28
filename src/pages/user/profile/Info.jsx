@@ -13,7 +13,7 @@ export default function Info() {
     setUser(null);
     navigate('/auth/login');
   }
-
+console.log(user);
   if (isLoading) {
     return <div className='w-100'>
       <Loading/>
@@ -23,6 +23,7 @@ export default function Info() {
     <section className={style.info}>
       <h1 className='fs-4 fw-bold'>Account Information</h1>
       <p><span className='fw-bold'>ID:</span> {user._id}</p>
+      <p><span className='fw-bold'>Create At:</span> {new Date(user.createdAt).toLocaleString()}</p>
       <Form className='pb-2'>
         <div className='d-flex gap-4 flex-wrap '>
           <FloatingLabel
@@ -37,12 +38,12 @@ export default function Info() {
         </div>
 
       </Form>
-      <div className='pt-4'>
+      <div className='pt-3 pb-1'>
         <h2 className='fs-5 fw-bold'>Change Your Password</h2>
         <p className='pb-2'>For your security, we highly recommend that you choose a unique password that you don't use for any other online account.</p>
         <Link to={'/forgetPassword'} className={`${style.button} `}>Change Password</Link>
       </div>
-      <div className='pt-5'>
+      <div className='pt-4'>
         <h2 className='fs-5 fw-bold pb-2'>Log Out</h2>
         <button onClick={()=>logOut()}>Log Out</button>
       </div>

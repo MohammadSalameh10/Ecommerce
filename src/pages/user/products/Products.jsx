@@ -6,6 +6,8 @@ import Pagination from 'react-bootstrap/Pagination';
 import Rating from '../../../components/user/rating/Rating'
 import axios from 'axios'
 import style from './products.module.css'
+import { Slide, toast } from 'react-toastify';
+
 
 
 export default function Products() {
@@ -16,11 +18,13 @@ export default function Products() {
     const [sort, setSort] = useState('');
     const [search, setSearch] = useState('');
     const [minPrice, setMinPrice] = useState(0);
-    const [maxPrice, setMaxPrice] = useState(99999);
+    const [maxPrice, setMaxPrice] = useState(99999999);
+    const numberOfProducts = 3;
+    const numberOfPages = Math.ceil(data.total / numberOfProducts);
     const getProducts = async () => {
         setIsLoading(true);
         try {
-            const { data } = await axios.get(`${import.meta.env.VITE_BURL}/products?page=${currentPage}&limit=5&sort=${sort}&search=${search}&price[gte]=${minPrice}&price[lte]=${maxPrice}`);
+            const { data } = await axios.get(`${import.meta.env.VITE_BURL}/products?page=${currentPage}&limit=${numberOfProducts}&sort=${sort}&search=${search}&price[gte]=${minPrice}&price[lte]=${maxPrice}`);
             setData(data);
             setError(null)
         } catch (error) {
@@ -29,10 +33,6 @@ export default function Products() {
             setIsLoading(false);
         }
     }
-
-
-    const numberOfPages = Math.ceil(data.total / 5);
-
     const nextPage = () => {
         if (currentPage < numberOfPages) {
             setCurrentPage(currentPage + 1);
@@ -48,7 +48,28 @@ export default function Products() {
     const handelSort = (e) => {
         setSort(e.target.value);
     }
-    const handelfilter = (e) => {
+
+    const handelMinMax = (e) => {
+        e.preventDefault();
+        if (minPrice > maxPrice || minPrice < 0 || maxPrice < 0) {
+            toast.warn('invalid input in min or max price', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Slide,
+            });
+            setMinPrice(0);
+            setMaxPrice(99999999);  
+        } else {
+            getProducts();
+        }
+    }
+    const handelSearch = (e) => {
         e.preventDefault();
         getProducts();
     }
@@ -79,16 +100,16 @@ export default function Products() {
 
                                 <div className={`${style.priceFilter} d-flex gap-2 align-items-center justify-content-center `}>
                                     <span>Min</span>
-                                    <Form.Control type="text" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} />
+                                    <Form.Control type="text" onChange={(e) => setMinPrice(e.target.value)} />
                                     <span>Max</span>
-                                    <Form.Control value={maxPrice} type="text" onChange={(e) => setMaxPrice(e.target.value)} />
-                                    <button className={style.goButton} onClick={handelfilter}>Go</button>
+                                    <Form.Control type="text" onChange={(e) => setMaxPrice(e.target.value)} />
+                                    <button className={style.goButton} onClick={handelMinMax}>Go</button>
                                 </div>
 
                                 <Form.Group controlId="search">
                                     <Form.Control type="search" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} />
                                 </Form.Group>
-                                <button className={style.searchButton} onClick={handelfilter}>Search</button>
+                                <button className={style.searchButton} onClick={handelSearch}>Search</button>
 
                             </Form>
                         </div>

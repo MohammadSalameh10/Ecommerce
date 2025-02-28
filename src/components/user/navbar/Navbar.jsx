@@ -5,7 +5,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/images/navbar/logo.png';
 import location from '../../../assets/images/navbar/location.svg';
-import userProfile from '../../../assets/images/navbar/user.svg';
 import wishlist from '../../../assets/images/navbar/wishlist.svg';
 import cart from '../../../assets/images/navbar/cart.svg';
 import { CartContext } from '../context/CartContext';
@@ -16,7 +15,7 @@ import style from './navbar.module.css';
 export default function CustomNavbar() {
 
 const { cartCount } = useContext(CartContext);
-const {user ,setUser,isLoading} = useContext(UserContext);
+const {user ,setUser} = useContext(UserContext);
 const navigate = useNavigate();
 const logOut = ()=>{
   localStorage.removeItem('userToken');
@@ -29,7 +28,7 @@ const logOut = ()=>{
     <Navbar expand="lg" className={`${style.navbar}`}>
       <Container>
         <Navbar.Brand className='d-flex align-items-center gap-3'>
-          <Link to={'/'} className='d-flex align-items-center gap-1'>
+          <Link to={'/'} className='d-flex align-items-center gap-1' onClick={()=>window.scroll(0,0)}>
             <img src={logo} />
             <div className={`${style.websiteName} position-relative`}>
               <span>com</span>
@@ -45,21 +44,21 @@ const logOut = ()=>{
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={`${style.nav} ms-auto d-flex align-items-center gap-4`}>
-            <Nav.Link as={Link} to={'/'}>
+            <Nav.Link as={Link} to={'/'} onClick={()=>window.scroll(0,0)}>
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to={'/products'} className={`${style.login} d-flex flex-column`}>
+            <Nav.Link as={Link} to={'/products'} className={`${style.login} d-flex flex-column`} onClick={()=>window.scroll(0,0)}>
               Products
             </Nav.Link>
          
-            <Nav.Link as={Link} to={'/contact'} >
+            <Nav.Link as={Link} to={'/contact'} onClick={()=>window.scroll(0,0)} >
               Contact
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={`${style.navs} ms-auto d-flex align-items-center`}>
-            <Nav.Link as={Link} to={'/profile/info'} >
+            <Nav.Link as={Link} to={'/profile/info'} onClick={()=>window.scroll(0,0)}>
             <div className='d-flex  align-items-center'>
               <div className='d-flex'>
               <NavDropdown id="basic-nav-dropdown" className='d-lg-block d-none'>
@@ -78,7 +77,7 @@ const logOut = ()=>{
               <img src={wishlist} className='d-lg-block d-none' />
               <span className='d-lg-none d-block'>Wishlist</span>
             </Nav.Link>
-            <Nav.Link as={Link} to={'/cart'} className='position-relative'>
+            <Nav.Link as={Link} to={'/cart'} className='position-relative' onClick={()=>window.scroll(0,0)}>
              <span className={`${style.cartCount} `}>{cartCount}</span> 
               <img src={cart} className='d-lg-block d-none' />
              
